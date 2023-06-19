@@ -18,8 +18,6 @@ const Sidebar = () => {
     setRenderTable,
     setTableData,
     setBlank,
-    setRenderResult,
-    setResult,
     setLoading,
   } = useContext(FormActionContext);
   const [collapsed, setCollapsed] = useState(true);
@@ -46,8 +44,6 @@ const Sidebar = () => {
   useEffect(() => {
     setTableData([]);
     setBlank(true);
-    setRenderResult(false);
-    setResult({ success: false, message: "" });
     setLoading(false);
     setRenderTable(false);
     setActive();

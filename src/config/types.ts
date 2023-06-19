@@ -1,47 +1,28 @@
 import {IExcelColumn} from "antd-table-saveas-excel/app";
 
-export type BrandTableData = {
+export type SearchTableData = {
   id: string;
-  class: string;
-  process: string;
-  brand: string;
-  presentation?: string;
-  situation?: string;
-  name?: string;
-  activities?: string;
-  country?: string;
-  state?: string;
-  complement?: string;
-  rpi?: string
-  dataRpi?: string
-}
-
-
-export type GeneralSearchParams = {
-  termo: string;
-  classe: string;
-  situacao: string;
-}
-
-export type RadicalSearchParams = {
-  and1: string;
-  and2?: string;
-  and3?: string;
-  or1?: string;
-  or2?: string;
-  or3?: string;
-  not1?: string;
-  not2?: string;
-  not3?: string;
-  classe: string;
-  situacao: string;
-}
-
-export type DistanceSearchParams = {
-  termo: string;
-  classe: string;
-  situacao: string;
-  distance: string;
+  raiz_cnpj: string;
+  cnpj: string;
+  razao_social: string;
+  nome_fantasia: string;
+  uf: string;
+  municipio: string;
+  bairro: string;
+  cep: string;
+  logradouro: string;
+  numero: string;
+  cnae_principal: string;
+  porte: string;
+  email: string;
+  telefone: string;
+  socios: string;
+  linkedin: string;
+  qtn_seguidores_linkedin?: string;
+  facebook: string;
+  qtn_seguidores_facebook?: string;
+  instagram: string;
+  qtn_seguidores_instagram?: string;
 }
 
 export type PreTableParams = {

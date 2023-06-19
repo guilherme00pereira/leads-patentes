@@ -1,6 +1,6 @@
 
 
-const AddressSearchForm = () => {
+const LeadsTable = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const AddressSearchForm = () => {
     );
 };
 
-export default AddressSearchForm;
+export default LeadsTable;

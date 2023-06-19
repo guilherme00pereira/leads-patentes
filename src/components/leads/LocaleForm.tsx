@@ -1,6 +1,5 @@
 
-
-const SearchForm = () => {
+const LocaleForm = () => {
     return (
         <div>
             
@@ -8,4 +7,4 @@ const SearchForm = () => {
     );
 };
 
-export default SearchForm;
+export default LocaleForm;

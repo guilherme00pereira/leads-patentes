@@ -1,5 +1,5 @@
 
-const LocaleSection = () => {
+const GeneralFilterForm = () => {
     return (
         <div>
             
@@ -7,4 +7,4 @@ const LocaleSection = () => {
     );
 };
 
-export default LocaleSection;
+export default GeneralFilterForm;

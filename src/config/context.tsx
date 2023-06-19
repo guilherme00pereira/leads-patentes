@@ -1,34 +1,38 @@
 import {createContext} from "react";
-import {BrandTableData, resultType} from "./types.ts";
+import {SearchTableData} from "./types.ts";
 
 export const FormActionContext = createContext<{
-    setRenderTable: (newValue: boolean) => void,
-    setLoading: (newValue: boolean) => void,
-    setBlank: (newValue: boolean) => void,
-    tableData: BrandTableData[],
-    setTableData: (newValue: BrandTableData[]) => void,
-    setRenderResult: (newValue: boolean) => void,
-    setResult: (newValue: resultType) => void,
-    renderTable: boolean,
-    result: resultType,
-    loading: boolean,
     blank: boolean,
-    renderResult: boolean,
-    loadingText: boolean,
-    showLoadingText: (newValue: boolean) => void,
+    setBlank: (newValue: boolean) => void,
+    tableData: SearchTableData[],
+    setTableData: (newValue: SearchTableData[]) => void,
+    renderTable: boolean,
+    setRenderTable: (newValue: boolean) => void,
+    loading: boolean,
+    setLoading: (newValue: boolean) => void,
 }>({
-    setRenderTable: () => undefined,
-    setLoading: () => undefined,
+    blank: true,
     setBlank: () => undefined,
     tableData: [],
     setTableData: () => undefined,
-    setRenderResult: () => undefined,
-    setResult: () => undefined,
     renderTable: false,
-    result: {success: false, message: ''},
+    setRenderTable: () => undefined,
     loading: false,
-    blank: true,
-    renderResult: false,
-    loadingText: false,
-    showLoadingText: () => undefined,
+    setLoading: () => undefined,
+});
+
+export const SearchContext = createContext<{
+    menu: string,
+    setMenu: (newValue: string) => void,
+    label: string,
+    setLabel: (newValue: string) => void,
+    placeholder: string,
+    setPlaceholder: (newValue: string) => void,
+}>({
+    menu: '',
+    setMenu: () => undefined,
+    label: '',
+    setLabel: () => undefined,
+    placeholder: 'Insira o dado de busca',
+    setPlaceholder: () => undefined,
 });
