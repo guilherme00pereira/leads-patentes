@@ -1,19 +1,21 @@
 import {Form, Input} from "antd";
-import {useContext} from "react";
-import {SearchContext} from "../../config/context.tsx";
 
-const InputField = () => {
-  const {label, placeholder} = useContext(SearchContext);
+interface InputProps {
+  label: string;
+  placeholder?: string;
+}
+
+const InputField = (props: InputProps) => {
 
   return (
     <Form.Item
       name="termo"
-      label={label}
+      label={props.label}
       colon={false}
       rules={[{ required: true, message: 'Campo obrigatório' }]}
     >
       <Input
-        placeholder={placeholder}
+        placeholder={props.placeholder ?? "Insira o dado de busca"}
         size="large"
         style={{ width: '100%' }}
       />

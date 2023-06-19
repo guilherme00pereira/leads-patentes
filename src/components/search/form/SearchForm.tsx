@@ -2,7 +2,12 @@ import { Form } from 'antd'
 import SearchButton from "../../form/SearchButton.tsx";
 import InputField from "../../form/InputField.tsx";
 
-const SearchForm = () => {
+interface FormProps {
+    label: string;
+    placeholder?: string;
+  }
+
+const SearchForm = (props: FormProps) => {
     const [form] = Form.useForm()
 
     return (
@@ -12,7 +17,7 @@ const SearchForm = () => {
           requiredMark="optional"
           style={{ alignItems: 'flex-start' }}
         >
-            <InputField />
+            <InputField label={props.label} placeholder={props.placeholder} />
             <Form.Item>
                 <SearchButton />
             </Form.Item>

@@ -18,7 +18,7 @@
 }
 
 .ant-select-arrow {
-  color: #080C66 !important;
+  color: #1EAE93 !important;
 }
 
 .ant-form-item-row {
@@ -28,7 +28,7 @@
 }
 
 .rc-virtual-list-scrollbar-thumb {
-  background-color: #080C66 !important;
+  background-color: #1EAE93 !important;
 }
 
 .auth-card {
@@ -45,7 +45,7 @@
 }
 
 label {
-  color: #080C66 !important;
+  color: #1EAE93 !important;
   font-weight: bold;
 }
 
@@ -184,7 +184,7 @@ label {
 .multiple-terms {
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #080C66;
+  border-right: 1px solid #1EAE93;
   margin-right: 10px;
 }
 
@@ -204,7 +204,7 @@ label {
 }
 
 .multiple-terms-titles {
-  color: #080C66;
+  color: #1EAE93;
   font-weight: bold;
   padding-left: 10px;
 }
@@ -222,3 +222,24 @@ label {
   font-size: 48px
 }
 
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.cpf-info {
+  margin: 40px 40px 0;
+  font-size: 14px;
+}
+
+.form-button {
+  direction: rtl;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+}

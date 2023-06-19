@@ -3,7 +3,7 @@ import { Loading3QuartersOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 
-const LoadingSpinner = <Loading3QuartersOutlined style={{ fontSize: 64, color: "#080C66" }} spin />;
+const LoadingSpinner = <Loading3QuartersOutlined style={{ fontSize: 64, color: "#00AFCE" }} spin />;
 
 const Loading = () => {
   return (

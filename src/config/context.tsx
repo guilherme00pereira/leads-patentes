@@ -20,19 +20,3 @@ export const FormActionContext = createContext<{
     loading: false,
     setLoading: () => undefined,
 });
-
-export const SearchContext = createContext<{
-    menu: string,
-    setMenu: (newValue: string) => void,
-    label: string,
-    setLabel: (newValue: string) => void,
-    placeholder: string,
-    setPlaceholder: (newValue: string) => void,
-}>({
-    menu: '',
-    setMenu: () => undefined,
-    label: '',
-    setLabel: () => undefined,
-    placeholder: 'Insira o dado de busca',
-    setPlaceholder: () => undefined,
-});

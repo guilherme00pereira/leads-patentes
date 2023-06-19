@@ -6,22 +6,22 @@ export const searchMenuItems: TabsProps['items'] = [
     {
         key: '1',
         label: `CNPJ`,
-        children: <SearchSection label="CNPJ" placeholder="Insira o CNPJ para busca" />
+        children: <SearchSection menu="1" label="CNPJ" placeholder="Insira o CNPJ para busca" />
     },
     {
         key: '2',
         label: `Raiz CNPJ`,
-        children: <SearchSection label="Raiz CNPJ"  />
+        children: <SearchSection menu="2" label="Raiz CNPJ"  />
     },
     {
         key: '3',
         label: `Nome Sócio`,
-        children: <SearchSection label="Nome Sócio" />
+        children: <SearchSection menu="3" label="Nome Sócio" />
     },
     {
         key: '4',
         label: `CPF`,
-        children: <SearchSection label="CPF" placeholder="Insira o CPF para busca" />
+        children: <SearchSection menu="4" label="CPF" placeholder="Insira o CPF para busca" />
     },
     {
         key: '5',
