@@ -1,9 +1,12 @@
+import HeaderSection from "../components/HeaderSection.tsx";
+import GeneralFilterForm from "../components/leads/GeneralFilterForm.tsx";
 
 
 const LeadGeneration = () => {
     return (
-        <div>
-            
+      <div className="main-container">
+          <HeaderSection title="Geração de Leads"/>
+            <GeneralFilterForm />
         </div>
     );
 };

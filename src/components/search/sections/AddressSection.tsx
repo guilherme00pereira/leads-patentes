@@ -1,8 +1,9 @@
+import AddressSearchForm from "../form/AddressSearchForm.tsx";
 
 const AddressSection = () => {
   return (
-    <div>
-
+    <div className="address-wrapper">
+      <AddressSearchForm />
     </div>
   );
 };

@@ -36,6 +36,14 @@ export type columnType = {
   dataIndex: string,
 }
 
+export enum SelectType {
+  "UF",
+  "MUNICIPIO",
+  "MATRIZ_FILIAL",
+  "NATUREZA_JURIDICA",
+  "PORTE",
+}
+
 export type resultType = {
   success: boolean,
   message: string,

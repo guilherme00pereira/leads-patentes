@@ -3,6 +3,7 @@ import {Form, Input} from "antd";
 interface InputProps {
   label: string;
   placeholder?: string;
+  width?: number;
 }
 
 const InputField = (props: InputProps) => {
@@ -17,7 +18,7 @@ const InputField = (props: InputProps) => {
       <Input
         placeholder={props.placeholder ?? "Insira o dado de busca"}
         size="large"
-        style={{ width: '100%' }}
+        style={{ width: props.width ?? '100%' }}
       />
     </Form.Item>
   );

@@ -15,7 +15,7 @@ const SearchSection = (props: SearchProps) => {
   const renderSubSection = () => {
     console.log(props);
     if (props.menu === "3") {
-      return <Checkbox>Buscar apenas nome exato</Checkbox>;
+      return <Checkbox style={{paddingTop: "20px"}}>Buscar apenas nome exato</Checkbox>;
     }
     if (props.menu === "4") {
       return (
