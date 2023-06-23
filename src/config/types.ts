@@ -44,7 +44,17 @@ export enum SelectType {
   "PORTE",
 }
 
-export type resultType = {
-  success: boolean,
-  message: string,
+export enum IndividualSearchType {
+  CNPJ = 1,
+  CNPJ_RAIZ = 2,
+  NOME_SOCIO = 3,
+  CPF = 4,
+}
+
+export const AddressSearchType = {
+  UF: 5,
+  MUNICIPIO: 6,
+  BAIRRO: 7,
+  ENDERECO: 8,
+  CEP: 9,
 }
