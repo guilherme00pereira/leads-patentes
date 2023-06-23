@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Form } from 'antd'
 import SelectField from "../../form/SelectField.tsx";
 import {SelectType} from "../../../config/types.ts";
@@ -5,6 +6,7 @@ import InputField from "../../form/InputField.tsx";
 import SearchButton from "../../form/SearchButton.tsx";
 
 const AddressSearchForm = () => {
+    const [selectedUF, setSelectedUF] = useState<string>("");
     const [form] = Form.useForm()
 
     return (

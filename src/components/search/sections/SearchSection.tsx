@@ -1,11 +1,12 @@
 import { Checkbox, theme } from "antd";
 import SearchForm from "../form/SearchForm.tsx";
+import { IndividualSearchType } from "../../../config/types.ts";
 
 const { useToken } = theme;
 
 interface SearchProps {
   label: string;
-  menu: string;
+  menu: IndividualSearchType;
   placeholder?: string;
 }
 
@@ -14,10 +15,10 @@ const SearchSection = (props: SearchProps) => {
 
   const renderSubSection = () => {
     console.log(props);
-    if (props.menu === "3") {
+    if (props.menu === IndividualSearchType.NOME_SOCIO) {
       return <Checkbox style={{paddingTop: "20px"}}>Buscar apenas nome exato</Checkbox>;
     }
-    if (props.menu === "4") {
+    if (props.menu === IndividualSearchType.CPF) {
       return (
         <div className="cpf-info">
           <b style={{color: token.colorPrimary }}>Informação:</b> A busca sobre CPF é realizada de forma parcial sobre o

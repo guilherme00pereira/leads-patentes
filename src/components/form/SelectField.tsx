@@ -1,6 +1,6 @@
-import { Select, Form } from 'antd';
-import {SelectType} from "../../config/types.ts";
-import {estados} from "../../config/data.tsx";
+import { useState, useEffect } from "react";
+import { Select, Form } from "antd";
+import { SelectType } from "../../config/types.ts";
 
 interface SelectProps {
   label: string;
@@ -8,20 +8,33 @@ interface SelectProps {
 }
 
 const SelectField = (props: SelectProps) => {
+  const [options, setOptions] = useState<any[]>([]);
 
-  const dataSource = () => {
+  useEffect(() => {
+
     switch (props.type) {
       case SelectType.UF:
-        return estados.map((estado) => {
-          return {
-            value: estado.sigla,
-            label: estado.nome
-          }
-        }
-      )
+        let estados: any[];
+        fetch("/uf.json").then((response) => {
+          return response.json();
+        }).then((data) => {
+          estados = data;
+        }).then(() => {
+          setOptions(Object.keys(estados).map((estado: any) => {
+            return {
+              value: estado,
+              label: estado,
+            };
+        }));
+      });
       case SelectType.MUNICIPIO:
-        return []
+        setOptions([]);
     }
+
+  }, []);
+
+  const handleSelectChange = (value: any) => {
+    console.log(`selected ${value}`); 
   }
 
   return (
@@ -29,13 +42,9 @@ const SelectField = (props: SelectProps) => {
       name={props.label.toLowerCase()}
       label={props.label}
       colon={false}
-      rules={[{ required: true, message: 'Campo obrigatório' }]}
+      rules={[{ required: true, message: "Campo obrigatório" }]}
     >
-      <Select
-        size='large'
-        style={{ width: '200px' }}
-        options={dataSource()}
-      />
+      <Select size="large" style={{ width: "200px" }} options={options} />
     </Form.Item>
   );
 };
