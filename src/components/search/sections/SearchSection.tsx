@@ -14,7 +14,6 @@ const SearchSection = (props: SearchProps) => {
   const { token } = useToken();
 
   const renderSubSection = () => {
-    console.log(props);
     if (props.menu === IndividualSearchType.NOME_SOCIO) {
       return <Checkbox style={{paddingTop: "20px"}}>Buscar apenas nome exato</Checkbox>;
     }
@@ -33,7 +32,7 @@ const SearchSection = (props: SearchProps) => {
 
   return (
     <div className="search-wrapper">
-      <SearchForm label={props.label} placeholder={props.placeholder} />
+      <SearchForm label={props.label} placeholder={props.placeholder} menu={props.menu} />
       {renderSubSection()}
     </div>
   );

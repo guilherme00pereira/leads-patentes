@@ -117,3 +117,8 @@ export const searchTableColumns = [
         dataIndex: 'qtn_seguidores_instagram',
     }
 ]
+
+export const exportSelect: Array<object> = [
+    //{value: 'pdf', label: '.pdf'},
+    {value: 'xlsx', label: '.xlsx'},
+  ]

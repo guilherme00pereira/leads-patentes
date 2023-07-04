@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { Form } from 'antd'
-import SelectField from "../../form/SelectField.tsx";
-import {SelectType} from "../../../config/types.ts";
 import InputField from "../../form/InputField.tsx";
 import SearchButton from "../../form/SearchButton.tsx";
+import SelectEstados from "../../form/SelectEstados.tsx";
+import SelectMunicipios from "../../form/SelectMunicipios.tsx";
 
 const AddressSearchForm = () => {
     const [selectedUF, setSelectedUF] = useState<string>("");
     const [form] = Form.useForm()
+
+    const handleSubmit = () => {
+        console.log(selectedUF)
+    }
 
     return (
       <Form
@@ -16,13 +20,13 @@ const AddressSearchForm = () => {
         requiredMark="optional"
         style={{ alignItems: 'center', justifyContent: 'center' }}
       >
-          <SelectField label="UF" type={SelectType.UF} />
-          <SelectField label="Município" type={SelectType.MUNICIPIO} />
+          <SelectEstados label="UF" onSelect={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedUF(e.target.value)} />
+          <SelectMunicipios label="Município" parentValue={selectedUF} />
           <InputField label="Bairro" placeholder="Insira o bairro da busca" />
           <InputField label="Endereço" placeholder="Insira o endereço da busca" width={260}/>
           <InputField label="CEP" placeholder="Insira o CEP da busca"/>
         <Form.Item>
-          <SearchButton />
+          <SearchButton onClick={handleSubmit} />
         </Form.Item>
       </Form>
     );
