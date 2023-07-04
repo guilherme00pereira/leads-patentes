@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { MdOutlineSearch } from 'react-icons/md'
 
-const SearchButton = () => {
+const SearchButton = (props: {onClick:()=>void}) => {
   return (
     <Button
       type="primary"
@@ -13,6 +13,7 @@ const SearchButton = () => {
         padding: '0 14px',
         marginTop: '32px',
       }}
+      onClick={props.onClick}
     >
       Buscar
     </Button>

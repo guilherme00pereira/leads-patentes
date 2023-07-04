@@ -1,7 +1,7 @@
 import {IExcelColumn} from "antd-table-saveas-excel/app";
 
 export type SearchTableData = {
-  id: string;
+  key: number;
   raiz_cnpj: string;
   cnpj: string;
   razao_social: string;
@@ -37,8 +37,6 @@ export type columnType = {
 }
 
 export enum SelectType {
-  "UF",
-  "MUNICIPIO",
   "MATRIZ_FILIAL",
   "NATUREZA_JURIDICA",
   "PORTE",
