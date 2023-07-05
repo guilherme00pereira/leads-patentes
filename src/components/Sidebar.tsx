@@ -1,17 +1,19 @@
-import { useContext, useEffect, useState } from "react";
-import { Layout, Button } from "antd";
-import { siderTheme } from "../config/theme.ts";
-import { ConfigProvider, Menu } from "antd";
+import {useContext, useEffect, useState} from "react";
+import {Layout, Button} from "antd";
+import {siderTheme} from "../config/theme.ts";
+import {ConfigProvider, Menu} from "antd";
 import {
-  MdOutlineSearch,
-  MdOutlineDescription,
+  MdOutlinePersonSearch,
+  MdOutlineLeaderboard,
+  MdOutlineHistory,
+  MdDisplaySettings,
   MdOutlineLogout,
 } from "react-icons/md";
-import { Link, useLocation } from "react-router-dom";
-import { FormActionContext } from "../config/context.tsx";
-import { useAuth } from "../hooks/useAuth.tsx";
+import {Link, useLocation} from "react-router-dom";
+import {FormActionContext} from "../config/context.tsx";
+import {useAuth} from "../hooks/useAuth.tsx";
 
-const { Sider } = Layout;
+const {Sider} = Layout;
 
 const Sidebar = () => {
   const {
@@ -78,37 +80,40 @@ const Sidebar = () => {
           >
             <Menu.Item
               key="bi"
-              icon={<MdOutlineSearch />}
+              icon={<MdOutlinePersonSearch/>}
               className="sidebar-menu-item"
             >
               <Link to="/painel">Busca Individual</Link>
             </Menu.Item>
             <Menu.Item
               key="gl"
-              icon={<MdOutlineDescription />}
+              icon={<MdOutlineLeaderboard/>}
               className="sidebar-menu-item"
             >
               <Link to="geracao-leads">Geração de Leads</Link>
             </Menu.Item>
             <Menu.Item
               key="hi"
-              icon={<MdOutlineDescription />}
+              icon={<MdOutlineHistory/>}
               className="sidebar-menu-item"
             >
               <Link to="historico-de-importacoes">
                 Histórico de Importações
               </Link>
             </Menu.Item>
+            <Menu.Item key="se" icon={<MdDisplaySettings/>} className="sidebar-menu-item">
+              <Link to="configuracoes">Configurações</Link>
+            </Menu.Item>
           </Menu>
           <Menu theme="dark" mode="inline" inlineCollapsed={collapsed}>
             <Menu.Item
               key="lo"
-              icon={<MdOutlineLogout />}
+              icon={<MdOutlineLogout/>}
               className="sidebar-menu-item"
             >
               <Button
                 type="text"
-                style={{ color: "rgb(255, 255, 255, 0.65)", fontSize: "18px" }}
+                style={{color: "rgb(255, 255, 255, 0.65)", fontSize: "18px"}}
                 onClick={logout}
               >
                 Sair

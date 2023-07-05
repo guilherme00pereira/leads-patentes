@@ -1,12 +1,8 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect, Dispatch, SetStateAction} from "react";
 import { Select, Form } from "antd";
 
-interface SelectProps {
-  label: string;
-  onSelect: (value: React.ChangeEvent<HTMLSelectElement>) => void;
-}
 
-const SelectField = (props: SelectProps) => {
+const SelectField = ({handler}: {handler: Dispatch<SetStateAction<string>>}) => {
   const [options, setOptions] = useState<any[]>([]);
 
   useEffect(() => {
@@ -32,12 +28,12 @@ const SelectField = (props: SelectProps) => {
 
   return (
     <Form.Item
-      name={props.label.toLowerCase()}
-      label={props.label}
+      name="uf"
+      label="UF"
       colon={false}
       rules={[{ required: true, message: "Campo obrigatório" }]}
     >
-      <Select size="large" style={{ width: "200px" }} options={options} />
+      <Select size="large" style={{ width: "200px" }} options={options} onSelect={(value) => handler(value)} />
     </Form.Item>
   );
 };

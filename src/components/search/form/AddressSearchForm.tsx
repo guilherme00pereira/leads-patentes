@@ -20,8 +20,8 @@ const AddressSearchForm = () => {
         requiredMark="optional"
         style={{ alignItems: 'center', justifyContent: 'center' }}
       >
-          <SelectEstados label="UF" onSelect={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedUF(e.target.value)} />
-          <SelectMunicipios label="Município" parentValue={selectedUF} />
+          <SelectEstados handler={setSelectedUF} />
+          <SelectMunicipios parentValue={selectedUF} />
           <InputField label="Bairro" placeholder="Insira o bairro da busca" />
           <InputField label="Endereço" placeholder="Insira o endereço da busca" width={260}/>
           <InputField label="CEP" placeholder="Insira o CEP da busca"/>

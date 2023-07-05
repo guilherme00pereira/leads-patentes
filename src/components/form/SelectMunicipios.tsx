@@ -1,16 +1,12 @@
 import { useState, useEffect } from "react";
 import { Select, Form } from "antd";
 
-interface SelectProps {
-  label: string;
-  parentValue: string;
-}
 
-const SelectField = (props: SelectProps) => {
+const SelectField = ({parentValue}: {parentValue: string}) => {
   const [options, setOptions] = useState<any[]>([]);
 
   useEffect(() => {
-    console.log(props.parentValue);
+    console.log(parentValue);
     let municipios: any[];
     fetch("/uf.json")
       .then((response) => {
@@ -22,7 +18,7 @@ const SelectField = (props: SelectProps) => {
       .then(() => {
         setOptions(
           Object.keys(municipios)
-            .filter((estado) => estado === props.parentValue)
+            .filter((estado) => estado === parentValue)
             .map((municipio: any) => {
               return {
                 value: municipio.cod,
@@ -31,12 +27,12 @@ const SelectField = (props: SelectProps) => {
             })
         );
       });
-  }, [props.parentValue]);
+  }, [parentValue]);
 
   return (
     <Form.Item
-      name={props.label.toLowerCase()}
-      label={props.label}
+      name="municipio"
+      label="Município"
       colon={false}
       rules={[{ required: true, message: "Campo obrigatório" }]}
     >

@@ -9,7 +9,7 @@ interface FormSectionTitleProps {
 const FormSectionTitle = ({title}: FormSectionTitleProps) => {
   const { token } = useToken();
 
-  return <Title level={2} style={{ color: token.colorPrimary}}>{title}</Title>
+  return <Title level={3} style={{ color: token.colorPrimary}}>{title}</Title>
 };
 
 export default FormSectionTitle;
