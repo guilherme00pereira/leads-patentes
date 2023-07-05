@@ -260,3 +260,17 @@ label {
     align-items: center;
     justify-content: center;
 }
+
+.leads-section-divider {
+    background-color: #52BBCE;
+    width: 95%;
+    min-width: 95%;
+    margin: 32px 0;
+}
+
+.ant-input-group-addon {
+    border: none !important;
+    background: #FFF !important;
+    color: #00AFCE !important;
+    font-weight: bold !important;
+}

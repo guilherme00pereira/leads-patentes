@@ -3,6 +3,7 @@ import {Row, Col} from "antd";
 import SelectEstados from "../form/SelectEstados.tsx";
 import SelectMunicipios from "../form/SelectMunicipios.tsx";
 import {useState} from "react";
+import InputField from "../form/InputField.tsx";
 
 
 const LocaleForm = () => {
@@ -14,13 +15,17 @@ const LocaleForm = () => {
             <div style={{width: "95%"}}>
                 <Row>
                     <Col span={6}>
-                        <SelectEstados  handler={setSelectedUF} />
+                        <SelectEstados size="middle" handler={setSelectedUF} />
                     </Col>
                     <Col span={6}>
-                        <SelectMunicipios parentValue={selectedUF} />
+                        <SelectMunicipios size="middle" parentValue={selectedUF} />
                     </Col>
-                    <Col span={6}></Col>
-                    <Col span={6}></Col>
+                    <Col span={6}>
+                        <InputField size="middle" label="Bairro" placeholder="Insira o bairro de busca" />
+                    </Col>
+                    <Col span={6}>
+                        <InputField size="middle" label="CEP" placeholder="Insira o CEP de busca" />
+                    </Col>
                 </Row>
             </div>
         </div>

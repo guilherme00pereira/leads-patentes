@@ -1,8 +1,14 @@
 import {useState, useEffect, Dispatch, SetStateAction} from "react";
 import { Select, Form } from "antd";
+import { SizeType } from "antd/es/config-provider/SizeContext";
+
+interface SelectProps {
+  size: SizeType;
+  handler: Dispatch<SetStateAction<string>>;
+}
 
 
-const SelectField = ({handler}: {handler: Dispatch<SetStateAction<string>>}) => {
+const SelectField = (props: SelectProps) => {
   const [options, setOptions] = useState<any[]>([]);
 
   useEffect(() => {
@@ -33,7 +39,7 @@ const SelectField = ({handler}: {handler: Dispatch<SetStateAction<string>>}) => 
       colon={false}
       rules={[{ required: true, message: "Campo obrigatório" }]}
     >
-      <Select size="large" style={{ width: "200px" }} options={options} onSelect={(value) => handler(value)} />
+      <Select size={props.size} style={{ width: "200px" }} options={options} onSelect={(value) => props.handler(value)} />
     </Form.Item>
   );
 };

@@ -5,19 +5,20 @@ interface InputProps {
   label: string;
   size: SizeType;
   placeholder?: string;
+  addonBefore?: string;
   width?: number;
 }
 
-const InputField = (props: InputProps) => {
+const InputAddonField = (props: InputProps) => {
 
   return (
     <Form.Item
       name="termo"
       label={props.label}
       colon={false}
-      rules={[{ required: true, message: 'Campo obrigatório' }]}
     >
       <Input
+        addonBefore={props.addonBefore}
         placeholder={props.placeholder ?? "Insira o dado de busca"}
         size={props.size}
         style={{ width: props.width ?? '100%' }}
@@ -26,4 +27,4 @@ const InputField = (props: InputProps) => {
   );
 };
 
-export default InputField;
+export default InputAddonField;

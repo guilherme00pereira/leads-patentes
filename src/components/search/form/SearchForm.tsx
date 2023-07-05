@@ -86,7 +86,7 @@ const SearchForm = (props: FormProps) => {
       requiredMark="optional"
       style={{ alignItems: "flex-start" }}
     >
-      <InputField label={props.label} placeholder={props.placeholder} />
+      <InputField size="large" label={props.label} placeholder={props.placeholder} />
       <Form.Item>
         <SearchButton onClick={handleSubmit} />
       </Form.Item>

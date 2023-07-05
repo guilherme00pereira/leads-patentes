@@ -20,11 +20,11 @@ const AddressSearchForm = () => {
         requiredMark="optional"
         style={{ alignItems: 'center', justifyContent: 'center' }}
       >
-          <SelectEstados handler={setSelectedUF} />
-          <SelectMunicipios parentValue={selectedUF} />
-          <InputField label="Bairro" placeholder="Insira o bairro da busca" />
-          <InputField label="Endereço" placeholder="Insira o endereço da busca" width={260}/>
-          <InputField label="CEP" placeholder="Insira o CEP da busca"/>
+          <SelectEstados size="large" handler={setSelectedUF} />
+          <SelectMunicipios size="large" parentValue={selectedUF} />
+          <InputField size="large" label="Bairro" placeholder="Insira o bairro da busca" />
+          <InputField size="large" label="Endereço" placeholder="Insira o endereço da busca" width={260}/>
+          <InputField size="large" label="CEP" placeholder="Insira o CEP da busca"/>
         <Form.Item>
           <SearchButton onClick={handleSubmit} />
         </Form.Item>

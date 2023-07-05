@@ -11,13 +11,14 @@ const Slider = ({label}: {label:string}) => {
     const [value, setValue] = useState(5000);
     return (
         <Form.Item
-            name="quantidade_leads"
+            name="nleads"
             label={label}
             colon={false}
+            rules={[{ required: true, message: "Campo obrigatório" }]}
         >
             <Row>
                 <Col span={8} offset={16}>
-                    <Input size="large" value={value} />
+                    <Input value={value} />
                 </Col>
             </Row>
             <Row>

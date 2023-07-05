@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 import { Select, Form } from "antd";
+import { SizeType } from "antd/es/config-provider/SizeContext";
+
+interface SelectProps {
+  size: SizeType;
+  parentValue: string;
+}
 
 
-const SelectField = ({parentValue}: {parentValue: string}) => {
+const SelectField = (props: SelectProps) => {
   const [options, setOptions] = useState<any[]>([]);
 
   useEffect(() => {
-    console.log(parentValue);
+    console.log(props.parentValue);
     let municipios: any[];
     fetch("/uf.json")
       .then((response) => {
@@ -18,7 +24,7 @@ const SelectField = ({parentValue}: {parentValue: string}) => {
       .then(() => {
         setOptions(
           Object.keys(municipios)
-            .filter((estado) => estado === parentValue)
+            .filter((estado) => estado === props.parentValue)
             .map((municipio: any) => {
               return {
                 value: municipio.cod,
@@ -27,7 +33,7 @@ const SelectField = ({parentValue}: {parentValue: string}) => {
             })
         );
       });
-  }, [parentValue]);
+  }, [props.parentValue]);
 
   return (
     <Form.Item
@@ -36,7 +42,7 @@ const SelectField = ({parentValue}: {parentValue: string}) => {
       colon={false}
       rules={[{ required: true, message: "Campo obrigatório" }]}
     >
-      <Select size="large" style={{ width: "200px" }} options={options} />
+      <Select size={props.size} style={{ width: "200px" }} options={options} />
     </Form.Item>
   );
 };
