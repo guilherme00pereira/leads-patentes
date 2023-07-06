@@ -253,6 +253,10 @@ label {
     text-transform: uppercase;
 }
 
+.leads-cols {
+    padding: 0 32px;
+}
+
 .lead-section-container {
     width: 100%;
     display: flex;
@@ -263,8 +267,6 @@ label {
 
 .leads-section-divider {
     background-color: #52BBCE;
-    width: 95%;
-    min-width: 95%;
     margin: 32px 0;
 }
 

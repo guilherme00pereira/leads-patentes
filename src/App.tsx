@@ -5,6 +5,7 @@ import LeadGeneration from "./routes/LeadGeneration.tsx";
 import ImportHistory from "./routes/ImportHistory.tsx";
 import Auth from "./routes/Auth.tsx";
 import 'antd/dist/reset.css';
+import Settings from "./routes/Settings.tsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         path: "historico-de-importacoes",
         element: <ImportHistory />,
       },
+      {
+        path: "configuracoes",
+        element: <Settings />,
+      }
       ]
   }
 ])

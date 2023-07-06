@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { Form } from "antd";
-import SearchButton from "../../form/SearchButton.tsx";
+import SubmitButton from "../../form/SubmitButton.tsx";
 import InputField from "../../form/InputField.tsx";
 import {
   IndividualSearchType,
   SearchTableData,
 } from "../../../config/types.ts";
-import { getIndividualSearch, getMockData } from "../../../lib/apiClient.ts";
+import { getIndividualSearch } from "../../../lib/apiClient.ts";
 import { FormActionContext } from "../../../config/context.tsx";
 
 interface FormProps {
@@ -17,13 +17,12 @@ interface FormProps {
 
 const SearchForm = (props: FormProps) => {
   const [form] = Form.useForm();
-  const { setRenderTable, setTableData, setLoading, setBlank } =
-    useContext(FormActionContext);
+  const { setRenderTable, setTableData, setLoading, setBlank } = useContext(FormActionContext);
 
   const handleSubmit = () => {
     setLoading(true);
     setBlank(false);
-    let tableData: SearchTableData[] = [];
+    const tableData: SearchTableData[] = [];
     form
       .validateFields()
       .then((param) => {
@@ -37,15 +36,13 @@ const SearchForm = (props: FormProps) => {
             );
             break;
           default:
-            //result = getIndividualSearch(props.menu, param.termo);
-            result = getMockData("2");
+            result = getIndividualSearch(props.menu, param.termo);
             break;
         }
 
         if (result) {
           result.then((data: any) => {
             Object.entries(data.body).forEach((item: any, index: number) => {
-              console.log(item[1].lograd);
               tableData.push({
                 key: index,
                 raiz_cnpj: item[1].cnpj_basico,
@@ -86,9 +83,9 @@ const SearchForm = (props: FormProps) => {
       requiredMark="optional"
       style={{ alignItems: "flex-start" }}
     >
-      <InputField size="large" label={props.label} placeholder={props.placeholder} />
+      <InputField name="termo" size="large" label={props.label} placeholder={props.placeholder} />
       <Form.Item>
-        <SearchButton onClick={handleSubmit} />
+        <SubmitButton onClick={handleSubmit} />
       </Form.Item>
     </Form>
   );

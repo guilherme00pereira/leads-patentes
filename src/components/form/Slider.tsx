@@ -17,8 +17,8 @@ const Slider = ({label}: {label:string}) => {
             rules={[{ required: true, message: "Campo obrigatório" }]}
         >
             <Row>
-                <Col span={8} offset={16}>
-                    <Input value={value} />
+                <Col span={8} offset={8}>
+                    <Input value={value} onChange={(e) => setValue(parseInt(e.target.value))} />
                 </Col>
             </Row>
             <Row>

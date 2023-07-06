@@ -21,10 +21,10 @@ const LocaleForm = () => {
                         <SelectMunicipios size="middle" parentValue={selectedUF} />
                     </Col>
                     <Col span={6}>
-                        <InputField size="middle" label="Bairro" placeholder="Insira o bairro de busca" />
+                        <InputField size="middle" width={200} label="Bairro" placeholder="Insira o bairro de busca" />
                     </Col>
                     <Col span={6}>
-                        <InputField size="middle" label="CEP" placeholder="Insira o CEP de busca" />
+                        <InputField size="middle" width={200} label="CEP" placeholder="Insira o CEP de busca" />
                     </Col>
                 </Row>
             </div>

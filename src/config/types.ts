@@ -1,5 +1,10 @@
 import {IExcelColumn} from "antd-table-saveas-excel/app";
 
+export interface BaseFormProps {
+  name: string;
+  label: string;
+}
+
 export type SearchTableData = {
   key: number;
   raiz_cnpj: string;
@@ -31,28 +36,9 @@ export type PreTableParams = {
   dataSource: any[];
 }
 
-export type columnType = {
-  title: string,
-  dataIndex: string,
-}
-
-export enum SelectType {
-  "MATRIZ_FILIAL",
-  "NATUREZA_JURIDICA",
-  "PORTE",
-}
-
 export enum IndividualSearchType {
   CNPJ = 1,
   CNPJ_RAIZ = 2,
   NOME_SOCIO = 3,
   CPF = 4,
-}
-
-export const AddressSearchType = {
-  UF: 5,
-  MUNICIPIO: 6,
-  BAIRRO: 7,
-  ENDERECO: 8,
-  CEP: 9,
 }

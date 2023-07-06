@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { MdOutlineSearch } from 'react-icons/md'
 
-const SearchButton = (props: {onClick:()=>void}) => {
+const SubmitButton = (props: {onClick:()=>void}) => {
   return (
     <Button
       type="primary"
@@ -20,4 +20,4 @@ const SearchButton = (props: {onClick:()=>void}) => {
   );
 };
 
-export default SearchButton;
+export default SubmitButton;

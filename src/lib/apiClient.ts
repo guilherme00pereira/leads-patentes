@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IndividualSearchType } from "../config/types.ts";
+import {IndividualSearchType} from "../config/types.ts";
 
 const baseUrl =
   "https://p9z6qoneoc.execute-api.us-east-1.amazonaws.com/teste/appleads?";
@@ -25,8 +25,7 @@ export const getIndividualSearch = async (
       url += `cpf=${value}`;
       break;
   }
-  const response = await sendRequest(url);
-  return response.data;
+  return await sendRequest(url);
 };
 
 export const getAddressSearch = async () => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form } from 'antd'
 import InputField from "../../form/InputField.tsx";
-import SearchButton from "../../form/SearchButton.tsx";
+import SubmitButton from "../../form/SubmitButton.tsx";
 import SelectEstados from "../../form/SelectEstados.tsx";
 import SelectMunicipios from "../../form/SelectMunicipios.tsx";
 
@@ -26,7 +26,7 @@ const AddressSearchForm = () => {
           <InputField size="large" label="Endereço" placeholder="Insira o endereço da busca" width={260}/>
           <InputField size="large" label="CEP" placeholder="Insira o CEP da busca"/>
         <Form.Item>
-          <SearchButton onClick={handleSubmit} />
+          <SubmitButton onClick={handleSubmit} />
         </Form.Item>
       </Form>
     );

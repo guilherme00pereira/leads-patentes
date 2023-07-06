@@ -12,20 +12,21 @@ const SelectField = (props: SelectProps) => {
   const [options, setOptions] = useState<any[]>([]);
 
   useEffect(() => {
-    console.log(props.parentValue);
-    let municipios: any[];
+    let estados: any[];
     fetch("/uf.json")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        municipios = data;
+        estados = data;
       })
       .then(() => {
+        const selectState = Object.fromEntries(Object.entries(estados).filter(([estado]) => estado === props.parentValue))
+        if(selectState.length === 0) return setOptions([])
+
+        const municipios = Object.values(selectState)[0].sort((a: any,b: any) => a.nome.localeCompare(b.nome))
         setOptions(
-          Object.keys(municipios)
-            .filter((estado) => estado === props.parentValue)
-            .map((municipio: any) => {
+          municipios.map((municipio: any) => {
               return {
                 value: municipio.cod,
                 label: municipio.nome,
@@ -42,7 +43,7 @@ const SelectField = (props: SelectProps) => {
       colon={false}
       rules={[{ required: true, message: "Campo obrigatório" }]}
     >
-      <Select size={props.size} style={{ width: "200px" }} options={options} />
+      <Select size={props.size} style={{ width: "200px" }} options={options} placeholder="Município" />
     </Form.Item>
   );
 };
