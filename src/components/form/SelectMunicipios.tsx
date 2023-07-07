@@ -43,7 +43,8 @@ const SelectField = (props: SelectProps) => {
       colon={false}
       rules={[{ required: true, message: "Campo obrigatório" }]}
     >
-      <Select size={props.size} style={{ width: "200px" }} options={options} placeholder="Município" />
+      <Select showSearch optionFilterProp="children" size={props.size} style={{ width: "200px" }} options={options} placeholder="Município"
+              filterOption={(input, option) => (option.label ?? '').toUpperCase().includes(input.toUpperCase())} />
     </Form.Item>
   );
 };

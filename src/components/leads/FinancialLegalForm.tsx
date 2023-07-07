@@ -11,16 +11,16 @@ const FinancialLegalForm = () => {
             <div style={{width: "100%"}}>
                 <Row>
                     <Col span={8} className="leads-cols">
-                        <SelectBasic label="Natureza Jurídica" width={300} options={naturezaJuridicaSelect} />
+                        <SelectBasic name="natjur" label="Natureza Jurídica" width={300} options={naturezaJuridicaSelect} />
                     </Col>
                     <Col span={6} className="leads-cols">
-                        <SelectBasic label="Porte" options={porteSelect} defaultValue={"99"} />
+                        <SelectBasic name="porte" label="Porte" options={porteSelect} defaultValue={"99"} />
                     </Col>
                     <Col span={5} style={{paddingLeft: "10px"}}>
-                        <InputAddonField addonBefore="Mínimo" label="Capital Social" placeholder="R$" size="middle" />
+                        <InputAddonField name="capmin" addonBefore="Mínimo" label="Capital Social" placeholder="R$" size="middle" />
                     </Col>
                     <Col span={5} style={{marginTop: "32px", paddingLeft: "10px"}}>
-                        <InputAddonField addonBefore="Máximo" label="" placeholder="R$" size="middle" />
+                        <InputAddonField name="capmax" addonBefore="Máximo" label="" placeholder="R$" size="middle" />
                     </Col>
                 </Row>
             </div>

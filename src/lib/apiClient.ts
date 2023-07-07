@@ -1,5 +1,5 @@
 import axios from "axios";
-import {IndividualSearchType} from "../config/types.ts";
+import {AdressApiParams, IndividualSearchType} from "../config/types.ts";
 
 const baseUrl =
   "https://p9z6qoneoc.execute-api.us-east-1.amazonaws.com/teste/appleads?";
@@ -28,10 +28,12 @@ export const getIndividualSearch = async (
   return await sendRequest(url);
 };
 
-export const getAddressSearch = async () => {
-  const url = `${baseUrl}tipo_busca=5&`;
-  const response = await sendRequest(url);
-  return response.data;
+export const getAddressSearch = async (params: AdressApiParams) => {
+  let url = `${baseUrl}tipo_busca=5&uf=${params.uf}&municipio=${params.municipio}`;
+  if (params.bairro) url += `&bairro=${params.bairro}`;
+  if (params.cep) url += `&cep=${params.cep}`;
+  if (params.logradouro) url += `&logradouro=${params.logradouro}`;
+  return await sendRequest(url);
 };
 
 const sendRequest = async (url: string) => {

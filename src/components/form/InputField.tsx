@@ -4,8 +4,8 @@ import {BaseFormProps} from "../../config/types.ts";
 
 interface InputProps extends BaseFormProps {
   size: SizeType;
-  placeholder?: string;
-  width?: number;
+  required: boolean;
+  width?: string;
 }
 
 const InputField = (props: InputProps) => {
@@ -15,7 +15,7 @@ const InputField = (props: InputProps) => {
       name={props.name}
       label={props.label}
       colon={false}
-      rules={[{ required: true, message: 'Campo obrigatório' }]}
+      rules={[{ required: props.required, message: 'Campo obrigatório' }]}
     >
       <Input
         placeholder={props.placeholder ?? "Insira o dado de busca"}

@@ -1,7 +1,7 @@
 import { Select, Form } from "antd";
+import {BaseFormProps} from "../../config/types.ts";
 
-interface SelectProps {
-    label: string;
+interface SelectProps extends BaseFormProps{
     options: any[];
     defaultValue?: string;
     width?: number;
@@ -13,7 +13,7 @@ const SelectBasic = (props: SelectProps) => {
 
     return (
         <Form.Item
-            name={props.label.toLowerCase()}
+            name={props.name}
             label={props.label}
             colon={false}
             rules={[{ required: true, message: "Campo obrigatório" }]}

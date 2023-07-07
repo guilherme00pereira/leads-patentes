@@ -1,8 +1,13 @@
 import { Form, DatePicker } from "antd";
+import {BaseFormProps} from "../../config/types.ts";
 
-const DateField = () => {
+const DateField = (props: BaseFormProps) => {
     return (
-        <Form.Item>
+        <Form.Item
+            name={props.name}
+            label={props.label}
+            colon={false}
+        >
             <DatePicker />
         </Form.Item>
     );

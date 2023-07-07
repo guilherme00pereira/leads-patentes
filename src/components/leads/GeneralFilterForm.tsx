@@ -13,16 +13,16 @@ const GeneralFilterForm = () => {
             <div style={{width: "100%"}}>
                 <Row>
                     <Col span={8} className="leads-cols">
-                        <Slider label="Quantidade de Leads"/>
+                        <Slider name="nleads" label="Quantidade de Leads"/>
                     </Col>
                     <Col span={6} className="leads-cols">
-                        <SelectBasic label="Matriz/Filial" options={matrizFilialSelect} />
+                        <SelectBasic name="mf" label="Matriz/Filial" options={matrizFilialSelect} />
                     </Col>
                     <Col span={5}>
-                        <DateField />
+                        <DateField name="data_ini" label="" />
                     </Col>
                     <Col span={5}>
-                        <DateField />
+                        <DateField name="data_fim" label="" />
                     </Col>
                 </Row>
                 <Row style={{marginTop: "-42px"}}>

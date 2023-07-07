@@ -20,12 +20,12 @@ const SearchForm = (props: FormProps) => {
   const { setRenderTable, setTableData, setLoading, setBlank } = useContext(FormActionContext);
 
   const handleSubmit = () => {
-    setLoading(true);
-    setBlank(false);
-    const tableData: SearchTableData[] = [];
     form
       .validateFields()
       .then((param) => {
+        setLoading(true);
+        setBlank(false);
+        const tableData: SearchTableData[] = [];
         let result: any = null;
         switch (props.menu) {
           case IndividualSearchType.NOME_SOCIO:
@@ -80,10 +80,10 @@ const SearchForm = (props: FormProps) => {
     <Form
       form={form}
       layout="inline"
-      requiredMark="optional"
+      requiredMark={false}
       style={{ alignItems: "flex-start" }}
     >
-      <InputField name="termo" size="large" label={props.label} placeholder={props.placeholder} />
+      <InputField name="termo" size="large" label={props.label} placeholder={props.placeholder} required={true} />
       <Form.Item>
         <SubmitButton onClick={handleSubmit} />
       </Form.Item>

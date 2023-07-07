@@ -1,18 +1,19 @@
 import {useState} from "react";
 import {Form, Row, Col, Slider as AntSlider, Input} from 'antd';
 import type { SliderMarks } from "antd/es/slider";
+import {BaseFormProps} from "../../config/types.ts";
 
 const marks: SliderMarks = {
     0: '0',
     10000: '10000',
 }
 
-const Slider = ({label}: {label:string}) => {
+const Slider = (props: BaseFormProps) => {
     const [value, setValue] = useState(5000);
     return (
         <Form.Item
-            name="nleads"
-            label={label}
+            name={props.name}
+            label={props.label}
             colon={false}
             rules={[{ required: true, message: "Campo obrigatório" }]}
         >
