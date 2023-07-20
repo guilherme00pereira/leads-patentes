@@ -1,5 +1,5 @@
-const blue = '#00AFCE'
-const green = '#1EAE93'
+const blue = '#141774'
+const green = '#249882'
 
 export const contentTheme = {
   token: {
@@ -14,7 +14,7 @@ export const contentTheme = {
 
 export const siderTheme = {
   token: {
-    colorPrimary: '#73B9C5',
+    colorPrimary: '#7B7CA1',
     colorBgBody: blue,
   },
   components: {

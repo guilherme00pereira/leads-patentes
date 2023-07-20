@@ -18,13 +18,13 @@ const LocaleForm = () => {
                         <SelectEstados size="middle" handler={setSelectedUF} />
                     </Col>
                     <Col span={6}>
-                        <SelectMunicipios size="middle" parentValue={selectedUF} />
+                        <SelectMunicipios size="middle" parentValue={selectedUF}  isRequired={false}/>
                     </Col>
                     <Col span={6}>
-                        <InputField name="bairro" size="middle" width={200} label="Bairro" placeholder="Insira o bairro de busca" />
+                        <InputField name="bairro" size="middle" width="200px" label="Bairro" placeholder="Insira o bairro de busca" required={false} />
                     </Col>
                     <Col span={6}>
-                        <InputField name="cep" size="middle" width={200} label="CEP" placeholder="Insira o CEP de busca" />
+                        <InputField name="cep" size="middle" width="200px" label="CEP" placeholder="Insira o CEP de busca" required={false} />
                     </Col>
                 </Row>
             </div>

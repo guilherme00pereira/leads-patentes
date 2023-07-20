@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import { ConfigProvider, Layout as Container } from "antd";
 import { FormActionContext } from "../config/context.tsx";
 import Sidebar from "../components/Sidebar.tsx";
-import { Outlet } from "react-router-dom";
+import {Outlet, useNavigate} from "react-router-dom";
 import { contentTheme } from "../config/theme.ts";
 import { IconContext } from "react-icons";
 import { SearchTableData } from '../config/types.ts'
 import ptBR from "antd/lib/locale/pt_BR";
-//import { useAuth } from "../hooks/useAuth.tsx";
-import '@fontsource/barlow';
+import { useAuth } from "../hooks/useAuth.tsx";
+import '@fontsource/space-grotesk';
 
 const { Content } = Container;
 
@@ -17,18 +17,18 @@ const Layout = () => {
   const [blank, setBlank] = useState(true);
   const [renderTable, setRenderTable] = useState(false);
   const [loading, setLoading] = useState(false);
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  //const auth = useAuth();
+  const auth = useAuth();
 
   useEffect(() => {
-    // if (!auth.isAuthenticated) {
-    //   return navigate("/");
-    // }
+    if (!auth.isAuthenticated) {
+      return navigate("/");
+    }
   }, []);
 
   return (
-    <ConfigProvider theme={{ token: { fontFamily: "Barlow" } }}>
+    <ConfigProvider theme={{ token: { fontFamily: "Space Grotesk" } }}>
       <Container style={{ minHeight: "100vh" }}>
         <FormActionContext.Provider
           value={{

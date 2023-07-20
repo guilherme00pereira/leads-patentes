@@ -5,8 +5,8 @@ import { SizeType } from "antd/es/config-provider/SizeContext";
 interface SelectProps {
   size: SizeType;
   parentValue: string;
+  isRequired: boolean;
 }
-
 
 const SelectField = (props: SelectProps) => {
   const [options, setOptions] = useState<any[]>([]);
@@ -21,18 +21,24 @@ const SelectField = (props: SelectProps) => {
         estados = data;
       })
       .then(() => {
-        const selectState = Object.fromEntries(Object.entries(estados).filter(([estado]) => estado === props.parentValue))
-        if(selectState.length === 0) return setOptions([])
-
-        const municipios = Object.values(selectState)[0].sort((a: any,b: any) => a.nome.localeCompare(b.nome))
-        setOptions(
-          municipios.map((municipio: any) => {
+        const selectState = Object.fromEntries(
+          Object.entries(estados).filter(
+            ([estado]) => estado === props.parentValue
+          )
+        );
+        //if (typeof selectState[0] !== 'undefined') {
+          const municipios = Object.values(selectState)[0].sort(
+            (a: any, b: any) => a.nome.localeCompare(b.nome)
+          );
+          setOptions(
+            municipios.map((municipio: any) => {
               return {
                 value: municipio.cod,
                 label: municipio.nome,
               };
             })
-        );
+          );
+        //}
       });
   }, [props.parentValue]);
 
@@ -41,10 +47,19 @@ const SelectField = (props: SelectProps) => {
       name="municipio"
       label="Município"
       colon={false}
-      rules={[{ required: true, message: "Campo obrigatório" }]}
+      rules={[{ required: props.isRequired, message: "Campo obrigatório" }]}
     >
-      <Select showSearch optionFilterProp="children" size={props.size} style={{ width: "200px" }} options={options} placeholder="Município"
-              filterOption={(input, option) => (option.label ?? '').toUpperCase().includes(input.toUpperCase())} />
+      <Select
+        showSearch
+        optionFilterProp="children"
+        size={props.size}
+        style={{ width: "200px" }}
+        options={options}
+        placeholder="Município"
+        filterOption={(input, option) =>
+          (option.label ?? "").toUpperCase().includes(input.toUpperCase())
+        }
+      />
     </Form.Item>
   );
 };

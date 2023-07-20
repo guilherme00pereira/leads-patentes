@@ -64,7 +64,7 @@ const AddressSearchForm = () => {
           <SelectEstados size="large" handler={setSelectedUF}/>
         </Col>
         <Col span={8}>
-          <SelectMunicipios size="large" parentValue={selectedUF}/>
+          <SelectMunicipios size="large" parentValue={selectedUF} isRequired/>
         </Col>
         <Col span={8}>
           <InputField name="bairro" size="large" label="Bairro" placeholder="Insira o bairro da busca"

@@ -68,7 +68,7 @@ const Sidebar = () => {
           bottom: 0,
           top: 0,
           zIndex: 1,
-          backgroundColor: "#00AFCE",
+          backgroundColor: "#141774",
         }}
       >
         <div className="sidebar-menu">
@@ -80,35 +80,35 @@ const Sidebar = () => {
           >
             <Menu.Item
               key="bi"
-              icon={<MdOutlinePersonSearch/>}
+              icon={<MdOutlinePersonSearch style={{fontSize: "18px"}}/>}
               className="sidebar-menu-item"
             >
               <Link to="/painel">Busca Individual</Link>
             </Menu.Item>
             <Menu.Item
               key="gl"
-              icon={<MdOutlineLeaderboard/>}
+              icon={<MdOutlineLeaderboard style={{fontSize: "18px"}}/>}
               className="sidebar-menu-item"
             >
               <Link to="geracao-leads">Geração de Leads</Link>
             </Menu.Item>
             <Menu.Item
               key="hi"
-              icon={<MdOutlineHistory/>}
+              icon={<MdOutlineHistory style={{fontSize: "18px"}}/>}
               className="sidebar-menu-item"
             >
               <Link to="historico-de-importacoes">
                 Histórico de Importações
               </Link>
             </Menu.Item>
-            <Menu.Item key="se" icon={<MdDisplaySettings/>} className="sidebar-menu-item">
+            <Menu.Item key="se" icon={<MdDisplaySettings style={{fontSize: "18px"}}/>} className="sidebar-menu-item">
               <Link to="configuracoes">Configurações</Link>
             </Menu.Item>
           </Menu>
           <Menu theme="dark" mode="inline" inlineCollapsed={collapsed}>
             <Menu.Item
               key="lo"
-              icon={<MdOutlineLogout/>}
+              icon={<MdOutlineLogout style={{fontSize: "18px"}}/>}
               className="sidebar-menu-item"
             >
               <Button
