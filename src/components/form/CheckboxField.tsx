@@ -13,7 +13,7 @@ const CheckboxField = (props: CheckboxProps) => {
             colon={false}
             valuePropName="checked"
             //rules={[{required: true, message: 'Campo obrigatório'}]}
-            style={{textAlign: "center"}}
+            style={{textAlign: "left"}}
         >
             <Checkbox style={{paddingTop: "10px"}}>{props.text}</Checkbox>
         </Form.Item>
