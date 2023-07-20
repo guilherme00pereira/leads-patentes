@@ -15,6 +15,7 @@ const Slider = (props: BaseFormProps) => {
             name={props.name}
             label={props.label}
             colon={false}
+            initialValue={value}
             rules={[{ required: true, message: "Campo obrigatório" }]}
         >
             <Row>

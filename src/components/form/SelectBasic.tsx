@@ -16,6 +16,7 @@ const SelectBasic = (props: SelectProps) => {
             name={props.name}
             label={props.label}
             colon={false}
+            initialValue={defVal}
             rules={[{ required: true, message: "Campo obrigatório" }]}
         >
             <Select size="middle" options={props.options} style={{ width: `${width}px` }} defaultValue={defVal} />

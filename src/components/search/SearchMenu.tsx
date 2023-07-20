@@ -19,7 +19,7 @@ const SearchMenu = () => {
         items={searchMenuItems}
         onChange={onChange}
         centered
-        tabBarStyle={{color: '#1EAE93'}}
+        tabBarStyle={{color: '#249882'}}
       />
     </div>
   );

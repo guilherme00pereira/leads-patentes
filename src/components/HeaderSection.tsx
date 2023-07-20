@@ -14,7 +14,7 @@ const HeaderSection = ({ title }: TitleProps) => {
     return (
         <div className="header-section">
             <div>
-                <Title>{title}</Title>
+                <Title >{title}</Title>
             </div>
             <div>
                 <span>Olá, {titleCase(auth.username)}</span>

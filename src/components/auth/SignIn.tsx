@@ -12,16 +12,15 @@ const SignIn = () => {
 
   const executeSignIn = async () => {
     setLoading(true)
-    navigate({ pathname: '/painel' })
-    // const values = await form.validateFields()
+    const values = await form.validateFields()
 
-    // const result = await auth.signIn(values.username, values.password)
-    // if (result.success) {
-    //   navigate({ pathname: '/painel' })
-    // } else {
-    //   setMessage(result.message)
-    //   setLoading(false)
-    // }
+    const result = await auth.signIn(values.username, values.password)
+    if (result.success) {
+      navigate({ pathname: '/painel' })
+    } else {
+      setMessage(result.message)
+      setLoading(false)
+    }
   }
 
   return (

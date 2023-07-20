@@ -1,5 +1,5 @@
 import axios from "axios";
-import {AdressApiParams, IndividualSearchType} from "../config/types.ts";
+import {AdressApiParams, IndividualSearchType, LeadsApiParams} from "../config/types.ts";
 
 const baseUrl =
   "https://p9z6qoneoc.execute-api.us-east-1.amazonaws.com/teste/appleads?";
@@ -36,6 +36,19 @@ export const getAddressSearch = async (params: AdressApiParams) => {
   return await sendRequest(url);
 };
 
+export const getLeadsSearch = async (params: LeadsApiParams) => {
+  let url = `${baseUrl}nleads=${params.nleads}&mf=${params.mf}&exc_imp=${params.exc_imp ? '1':'0'}&ativa=${params.ativa ? '1':'0'}&natjur=${params.natjur}&porte=${params.porte}`;
+  if (typeof params.data_ini !== 'undefined') url += `&data_ini=${params.data_ini}`;
+  if (typeof params.data_fim !== 'undefined') url += `&data_fim=${params.data_fim}`;
+  if (typeof params.uf !== 'undefined') url += `&uf=${params.uf}`;
+  if (typeof params.municipio !== 'undefined') url += `&municipio=${params.municipio}`;
+  if (typeof params.bairro !== 'undefined') url += `&bairro=${params.bairro}`;
+  if (typeof params.cep !== 'undefined') url += `&cep=${params.cep}`;
+  if (typeof params.capmin !== 'undefined') url += `&capmin=${params.capmin}`;
+  if (typeof params.capmax !== 'undefined') url += `&capmax=${params.capmax}`;
+  return await sendRequest(url);
+};
+
 const sendRequest = async (url: string) => {
   const response = await axios.get(url, {
     headers: {
@@ -45,8 +58,3 @@ const sendRequest = async (url: string) => {
   return response.data;
 };
 
-export const getMockData = async (type: string) => {
-
-  const res = await fetch(`./appleads${type}.json`).then(res => res.json())
-  return res
-};

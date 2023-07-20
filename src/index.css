@@ -6,6 +6,10 @@
     border-bottom: none;
 }
 
+.ant-tabs .ant-tabs-tab+.ant-tabs-tab {
+    margin: 0 4px 0 32px;
+}
+
 .ant-tabs-tabpane {
     display: flex;
     flex-direction: row;
@@ -18,7 +22,7 @@
 }
 
 .ant-select-arrow {
-    color: #1EAE93 !important;
+    color: #249882 !important;
 }
 
 .ant-form-item-row {
@@ -32,7 +36,7 @@
 }
 
 .rc-virtual-list-scrollbar-thumb {
-    background-color: #1EAE93 !important;
+    background-color: #141774 !important;
 }
 
 .auth-card {
@@ -49,7 +53,7 @@
 }
 
 label {
-    color: #00AFCE !important;
+    color: #141774 !important;
     font-weight: bold;
 }
 
@@ -188,7 +192,7 @@ label {
 .multiple-terms {
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #1EAE93;
+    border-right: 1px solid #249882;
     margin-right: 10px;
 }
 
@@ -208,7 +212,7 @@ label {
 }
 
 .multiple-terms-titles {
-    color: #1EAE93;
+    color: #249882;
     font-weight: bold;
     padding-left: 10px;
 }
@@ -232,6 +236,7 @@ label {
     align-items: center;
     justify-content: center;
     margin: 20px;
+    width: 100%;
 }
 
 .address-wrapper {
@@ -277,6 +282,24 @@ label {
 .ant-input-group-addon {
     border: none !important;
     background: #FFF !important;
-    color: #00AFCE !important;
+    color: #141774 !important;
     font-weight: bold !important;
+}
+
+.datepicker-prelabel {
+    color: #141774 !important;
+    font-weight: bold !important;
+    margin-right: 20px !important;
+}
+
+.ant-picker-suffix {
+    color: #141774 !important;
+}
+
+.btn-go-back {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }

@@ -45,6 +45,23 @@ export type AdressApiParams = {
     logradouro: string;
 }
 
+export type LeadsApiParams = {
+    nleads: string;
+    mf: string;
+    data_ini: string;
+    data_fim: string;
+    ativa: string;
+    exc_imp: string;
+    uf: string;
+    municipio: string;
+    bairro: string;
+    cep: string;
+    natjur: string;
+    porte: string;
+    capmin: string;
+    capmax: string;
+}
+
 export enum IndividualSearchType {
     CNPJ = 1,
     CNPJ_RAIZ = 2,
