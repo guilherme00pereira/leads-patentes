@@ -26,7 +26,7 @@ const SelectField = (props: SelectProps) => {
             ([estado]) => estado === props.parentValue
           )
         );
-        //if (typeof selectState[0] !== 'undefined') {
+        if (typeof Object.values(selectState)[0] !== 'undefined') {
           const municipios = Object.values(selectState)[0].sort(
             (a: any, b: any) => a.nome.localeCompare(b.nome)
           );
@@ -38,7 +38,7 @@ const SelectField = (props: SelectProps) => {
               };
             })
           );
-        //}
+        }
       });
   }, [props.parentValue]);
 

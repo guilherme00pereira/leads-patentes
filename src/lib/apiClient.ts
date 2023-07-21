@@ -37,16 +37,29 @@ export const getAddressSearch = async (params: AdressApiParams) => {
 };
 
 export const getLeadsSearch = async (params: LeadsApiParams) => {
-  let url = `${baseUrl}nleads=${params.nleads}&mf=${params.mf}&exc_imp=${params.exc_imp ? '1':'0'}&ativa=${params.ativa ? '1':'0'}&natjur=${params.natjur}&porte=${params.porte}`;
+  let url = `
+    ${baseUrl}nleads=${params.nleads}
+    &mf=${params.mf}
+    &exc_imp=${params.exc_imp ? '1':'0'}
+    &ativa=${params.ativa ? '1':'0'}
+    &natjur=${params.natjur}
+    &porte=${params.porte}
+    $uf=${params.uf}
+    $cnae=${params.cnae}
+    $cnae_secundario=${params.cnae_secundario ? '1':'0'}
+    $facebook=${params.facebook ? '1':'0'}
+    $instagram=${params.instagram ? '1':'0'}
+    $linkedin=${params.linkedin ? '1':'0'}
+  `;
   if (typeof params.data_ini !== 'undefined') url += `&data_ini=${params.data_ini}`;
   if (typeof params.data_fim !== 'undefined') url += `&data_fim=${params.data_fim}`;
-  if (typeof params.uf !== 'undefined') url += `&uf=${params.uf}`;
   if (typeof params.municipio !== 'undefined') url += `&municipio=${params.municipio}`;
   if (typeof params.bairro !== 'undefined') url += `&bairro=${params.bairro}`;
   if (typeof params.cep !== 'undefined') url += `&cep=${params.cep}`;
   if (typeof params.capmin !== 'undefined') url += `&capmin=${params.capmin}`;
-  if (typeof params.capmax !== 'undefined') url += `&capmax=${params.capmax}`;
-  return await sendRequest(url);
+  console.log(url);
+  return {data: {body: []}}; 
+  //return await sendRequest(url);
 };
 
 const sendRequest = async (url: string) => {

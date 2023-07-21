@@ -121,7 +121,7 @@ const SearchSection = (props: SearchProps) => {
           </Col>
         </Row>
         <Row>
-          <Col span={24}>{renderCheckbox()}</Col>
+          <Col span={12} offset={6}>{renderCheckbox()}</Col>
         </Row>
       </Form>
       <div>

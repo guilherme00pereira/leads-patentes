@@ -28,7 +28,7 @@ export const siderTheme = {
 export const loginTheme = {
   token: {
     colorPrimary: green,
-    fontFamily: 'Barlow',
+    fontFamily: 'Space Grotesk',
     colorBgContainer: '#F5F5F5',
     colorBorder: blue,
     colorText: blue,

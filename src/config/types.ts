@@ -60,6 +60,11 @@ export type LeadsApiParams = {
     porte: string;
     capmin: string;
     capmax: string;
+    cnae: string;
+    cnae_secundario: boolean;
+    facebook: boolean;
+    instagram: boolean;
+    linkedin: boolean;
 }
 
 export enum IndividualSearchType {

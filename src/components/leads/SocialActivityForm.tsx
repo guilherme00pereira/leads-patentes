@@ -18,7 +18,7 @@ const SocialActivityForm = () => {
             <Row>
               <Col span={8} className="leads-cols">
                 <SelectBasic
-                  name="natjur"
+                  name="cnae"
                   label="CNAE"
                   width={300}
                   options={naturezaJuridicaSelect}
@@ -36,27 +36,32 @@ const SocialActivityForm = () => {
           </Col>
           <Col span={12} className="leads-activity-social-section">
             <FormSectionTitle title="Social" />
-            <Row>
-              <Col span={24} style={{ flexDirection: "column" }}>
-                <CheckboxField
-                  name="facebook"
-                  text="Apenas empresa com Facebook"
-                />
-              </Col>
-            </Row>
-            <Row style={{ marginTop: "-28px" }}>
-              <Col span={24} style={{ flexDirection: "column" }}>
-                <CheckboxField name="instagram" text="Apenas empresa com Instagram" />
-              </Col>
-            </Row>
-            <Row style={{ marginTop: "-28px" }}>
-              <Col span={24} style={{ flexDirection: "column" }}>
-                <CheckboxField
-                  name="linkedin"
-                  text="Apenas empresa com Linkedin"
-                />
-              </Col>
-            </Row>
+            <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
+              <Row>
+                <Col span={24} style={{ flexDirection: "column" }}>
+                  <CheckboxField
+                    name="facebook"
+                    text="Apenas empresa com Facebook"
+                  />
+                </Col>
+              </Row>
+              <Row style={{ marginTop: "-28px" }}>
+                <Col span={24} style={{ flexDirection: "column" }}>
+                  <CheckboxField
+                    name="instagram"
+                    text="Apenas empresa com Instagram"
+                  />
+                </Col>
+              </Row>
+              <Row style={{ marginTop: "-28px" }}>
+                <Col span={24} style={{ flexDirection: "column" }}>
+                  <CheckboxField
+                    name="linkedin"
+                    text="Apenas empresa com Linkedin"
+                  />
+                </Col>
+              </Row>
+            </div>
           </Col>
         </Row>
       </div>
