@@ -1,9 +1,9 @@
 import { Input, Button, Form, Checkbox } from 'antd'
 import { useAuth } from '../../hooks/useAuth.tsx'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useState } from 'react'
 
-const SignIn = () => {
+const SignIn = ({isAdmin}: {isAdmin: boolean}) => {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
   const [form] = Form.useForm()
@@ -14,7 +14,8 @@ const SignIn = () => {
     setLoading(true)
     const values = await form.validateFields()
 
-    const result = await auth.signIn(values.username, values.password)
+    const result = isAdmin ? await auth.adminSignIn(values.username, values.password) : await auth.signIn(values.username, values.password)
+    
     if (result.success) {
       navigate({ pathname: '/painel' })
     } else {
@@ -60,6 +61,11 @@ const SignIn = () => {
         </Form.Item>
       </Form>
       {message && <p>{message}</p>}
+      {
+        isAdmin || <div className='link-acesso-admin'>
+          <Link to="/admin">Acesso Admin</Link>
+        </div>
+      }
     </div>
   )
 }

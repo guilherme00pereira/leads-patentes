@@ -70,9 +70,16 @@
     background-color: white;
     width: 400px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
 }
 
+.auth-card h3 {
+    color: #141774;
+    font-weight: bold;
+}
 
 .sidebar-menu-item {
     margin: 32px 0 !important;
@@ -335,4 +342,14 @@ label {
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+.link-acesso-admin {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.link-acesso-admin a {
+    color: #999999;
 }

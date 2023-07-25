@@ -101,9 +101,11 @@ const Sidebar = () => {
                 Histórico de Importações
               </Link>
             </Menu.Item>
-            <Menu.Item key="se" icon={<MdDisplaySettings style={{fontSize: "18px"}}/>} className="sidebar-menu-item">
-              <Link to="configuracoes">Configurações</Link>
-            </Menu.Item>
+            {auth.isAdmin && (
+              <Menu.Item key="se" icon={<MdDisplaySettings style={{fontSize: "18px"}}/>} className="sidebar-menu-item">
+                <Link to="configuracoes">Configurações</Link>
+              </Menu.Item>
+            )}
           </Menu>
           <Menu theme="dark" mode="inline" inlineCollapsed={collapsed}>
             <Menu.Item

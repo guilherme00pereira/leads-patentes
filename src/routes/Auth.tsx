@@ -12,7 +12,7 @@ const Auth = () => {
       <Container>
         <Content style={{ minHeight: '100vh', display: "flex", justifyContent: "center", alignItems: "center" }}>
           <div className="auth-card">
-            <SignIn />
+            <SignIn isAdmin={false} />
           </div>
         </Content>
       </Container>

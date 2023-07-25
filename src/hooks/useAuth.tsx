@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Amplify, Auth, API } from "aws-amplify";
-import awsExports from "../lib/aws-exports";
+import { generalConfig, adminConfig } from "../lib/aws-exports";
 
 interface UseAuth {
   isAuthenticated: boolean;
+  isAdmin: boolean;
   username: string;
   mail: string;
   avatar: string;
@@ -38,8 +39,10 @@ const useProvideAuth = (): UseAuth => {
   const [username, setUsername] = useState("");
   const [mail, setMail] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
+    if (!isAuthenticated) return;
     Auth.currentAuthenticatedUser()
       .then((result) => {
         setUsername(result.username);
@@ -57,32 +60,21 @@ const useProvideAuth = (): UseAuth => {
   const signIn = async (username: string, password: string) => {
     Amplify.configure({
       Auth: {
-        region: awsExports.REGION,
-        userPoolId: awsExports.USER_POOL_ID,
-        userPoolWebClientId: awsExports.USER_POOL_APP_CLIENT_ID,
+        region: generalConfig.REGION,
+        userPoolId: generalConfig.USER_POOL_ID,
+        userPoolWebClientId: generalConfig.USER_POOL_APP_CLIENT_ID,
       },
     });
 
     try {
       const user = await Auth.signIn(username, password);
-      console.log(user);
-      // if (user.challengeName === "NEW_PASSWORD_REQUIRED") {
-      //   const loggedUser = await Auth.completeNewPassword(
-      //     user, // the Cognito User Object,
-      //     'L3@d2#Admin', // the new password
-      //     {
-      //       name: user.username,
-      //       middle_name: user.challengeParam.userAttributes.middle_name,
-      //     }
-      //   );
-      //   console.log(loggedUser);
-      // } else {
-        setUsername(user.username);
-        setMail(user.challengeParam.userAttributes.email);
-        setIsAuthenticated(true);
-      // }
-      return { success: true, message: "" };
+      setUsername(user.username);
+      setMail(user.challengeParam.userAttributes.email);
+      setIsAuthenticated(true);
+      setIsAdmin(false)
+      return { success: true, message: "Usre logged in" };
     } catch (error) {
+      console.log(error);
       return {
         success: false,
         message: "LOGIN FAIL",
@@ -93,21 +85,31 @@ const useProvideAuth = (): UseAuth => {
   const adminSignIn = async (username: string, password: string) => {
     Amplify.configure({
       Auth: {
-        region: process.env.REACT_APP_ADMIN_REGION,
-        userPoolId: process.env.REACT_APP_ADMIN_USER_POOL_ID,
-        userPoolWebClientId: process.env.REACT_APP_ADMIN_USER_POOL_APP_CLIENT_ID,
+        region: adminConfig.REGION,
+        userPoolId: adminConfig.USER_POOL_ID,
+        userPoolWebClientId: adminConfig.USER_POOL_APP_CLIENT_ID,
       },
     });
     try {
       const user = await Auth.signIn(username, password);
-      console.log(user);
-      
+      // if (user.challengeName === "NEW_PASSWORD_REQUIRED") {
+      //   const loggedUser = await Auth.completeNewPassword(
+      //     user, // the Cognito User Object,
+      //     "L3@d2#Admin", // the new password
+      //     {
+      //       name: user.username,
+      //       middle_name: user.challengeParam.userAttributes.middle_name,
+      //     }
+      //   );
+      //   console.log(loggedUser);
+      // } else {
         setUsername(user.username);
-        setMail(user.challengeParam.userAttributes.email);
         setIsAuthenticated(true);
-      
-      return { success: true, message: "" };
+        setIsAdmin(true)
+      // }
+      return { success: true, message: "Admin logged in" };
     } catch (error) {
+      console.log(error);
       return {
         success: false,
         message: "LOGIN FAIL",
@@ -158,12 +160,13 @@ const useProvideAuth = (): UseAuth => {
 
   return {
     isAuthenticated,
+    isAdmin,
     username,
     mail,
     avatar,
     signIn,
     signOut,
     listUsers,
-    adminSignIn
+    adminSignIn,
   };
 };
