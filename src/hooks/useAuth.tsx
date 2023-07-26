@@ -77,7 +77,7 @@ const useProvideAuth = (): UseAuth => {
       console.log(error);
       return {
         success: false,
-        message: "LOGIN FAIL",
+        message: "Erro ao fazer login, contate o Administrador.",
       };
     }
   };
@@ -112,7 +112,7 @@ const useProvideAuth = (): UseAuth => {
       console.log(error);
       return {
         success: false,
-        message: "LOGIN FAIL",
+        message: "Erro ao fazer login, contate o Administrador.",
       };
     }
   };

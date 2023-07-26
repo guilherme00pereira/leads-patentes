@@ -1,8 +1,8 @@
 import FormSectionTitle from "../form/FormSectionTitle.tsx";
 import { Row, Col } from "antd";
-import SelectBasic from "../form/SelectBasic.tsx";
 import { naturezaJuridicaSelect } from "../../config/data.tsx";
 import CheckboxField from "../form/CheckboxField.tsx";
+import SelectCnaes from "../form/SelectCnaes.tsx";
 
 const SocialActivityForm = () => {
   return (
@@ -17,12 +17,7 @@ const SocialActivityForm = () => {
             <FormSectionTitle title="Atividades" />
             <Row>
               <Col span={8} className="leads-cols">
-                <SelectBasic
-                  name="cnae"
-                  label="CNAE"
-                  width={300}
-                  options={naturezaJuridicaSelect}
-                />
+                <SelectCnaes size="middle"  />
               </Col>
             </Row>
             <Row>
