@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         element: <ImportHistory />,
       },
       {
-        path: "configuracoes",
+        path: "administrativo",
         element: <Settings />,
       }
       ]

@@ -353,3 +353,10 @@ label {
 .link-acesso-admin a {
     color: #999999;
 }
+
+.table-administrative {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+}

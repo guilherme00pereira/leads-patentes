@@ -38,6 +38,8 @@ const Sidebar = () => {
       setSelectedKey("gl");
     } else if (location.pathname === "/painel/historico-de-importacoes") {
       setSelectedKey("hi");
+    } else if (location.pathname === "/painel/administrativo") {
+      setSelectedKey("ad");
     } else {
       setSelectedKey("bi");
     }
@@ -102,8 +104,8 @@ const Sidebar = () => {
               </Link>
             </Menu.Item>
             {auth.isAdmin && (
-              <Menu.Item key="se" icon={<MdDisplaySettings style={{fontSize: "18px"}}/>} className="sidebar-menu-item">
-                <Link to="configuracoes">Configurações</Link>
+              <Menu.Item key="ad" icon={<MdDisplaySettings style={{fontSize: "18px"}}/>} className="sidebar-menu-item">
+                <Link to="administrativo">Administrativo</Link>
               </Menu.Item>
             )}
           </Menu>

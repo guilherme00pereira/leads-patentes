@@ -10,8 +10,8 @@ interface UseAuth {
   avatar: string;
   signIn: (username: string, password: string) => Promise<Result>;
   signOut: () => void;
-  listUsers: () => Promise<any>;
   adminSignIn: (username: string, password: string) => Promise<Result>;
+  recoverPassword: (username: string) => Promise<Result>;
 }
 
 interface Result {
@@ -130,31 +130,16 @@ const useProvideAuth = (): UseAuth => {
       };
     }
   };
-
-  let nextToken: string = "";
-
-  const listUsers = async () => {
+  
+  const recoverPassword = async (username: string) => {
     try {
-      let apiName = "AdminQueries";
-      let path = "/listUsersInGroup";
-      let myInit = {
-        queryStringParameters: {
-          groupname: "Editors",
-          limit: "10",
-          token: nextToken,
-        },
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `${(await Auth.currentSession())
-            .getAccessToken()
-            .getJwtToken()}`,
-        },
-      };
-      const { NextToken, ...rest } = await API.get(apiName, path, myInit);
-      nextToken = NextToken;
-      return rest;
+      await Auth.forgotPassword(username);
+      return { success: true, message: "" };
     } catch (error) {
-      console.log(error);
+      return {
+        success: false,
+        message: "Erro ao recuperar senha, contate o Administrador.",
+      };
     }
   };
 
@@ -166,7 +151,7 @@ const useProvideAuth = (): UseAuth => {
     avatar,
     signIn,
     signOut,
-    listUsers,
     adminSignIn,
+    recoverPassword
   };
 };
