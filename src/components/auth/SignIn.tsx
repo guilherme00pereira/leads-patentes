@@ -1,6 +1,6 @@
 import { Input, Button, Form, Checkbox } from 'antd'
 import { useAuth } from '../../hooks/useAuth.tsx'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const SignIn = ({isAdmin}: {isAdmin: boolean}) => {
@@ -61,11 +61,6 @@ const SignIn = ({isAdmin}: {isAdmin: boolean}) => {
         </Form.Item>
       </Form>
       {message && <p>{message}</p>}
-      {
-        isAdmin || <div className='link-acesso-admin'>
-          <Link to="/admin">Acesso Admin</Link>
-        </div>
-      }
     </div>
   )
 }

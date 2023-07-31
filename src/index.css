@@ -65,6 +65,14 @@
     background-color: #141774 !important;
 }
 
+.container-auth-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
 .auth-card {
     padding: 20px;
     background-color: white;
@@ -345,6 +353,7 @@ label {
 }
 
 .link-acesso-admin {
+    margin-bottom: 20px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

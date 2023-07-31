@@ -1,45 +1,44 @@
-import { Input, Button, Form, Checkbox } from 'antd'
-import { useAuth } from '../../hooks/useAuth.tsx'
-import { useNavigate, Link } from 'react-router-dom'
-import { useState } from 'react'
+import {Input, Button, Form} from 'antd'
+import {useAuth} from '../../hooks/useAuth.tsx'
+import {useState} from 'react'
 
 const RecoverPwd = () => {
-    const [loading, setLoading] = useState(false)
-  const [message, setMessage] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState("")
   const [form] = Form.useForm()
   const auth = useAuth()
-  const navigate = useNavigate()
 
   const recoverPassword = async () => {
     setLoading(true)
     const values = await form.validateFields()
     const result = await auth.recoverPassword(values.username)
     if (result.success) {
-        navigate({ pathname: '/painel' })
-      } else {
-        setMessage(result.message)
-        setLoading(false)
-      }
+      setMessage("Um e-mail foi enviado para você com as instruções para recuperar sua senha.")
+      setLoading(false)
+    } else {
+      setMessage(result.message)
+      setLoading(false)
+    }
   }
-    return (
-        <div className="">
+  return (
+    <div style={{marginTop: "20px"}}>
       <Form
         form={form}
         layout="vertical"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
-        initialValues={{ remember: true }}
+        labelCol={{span: 16}}
+        wrapperCol={{span: 16}}
+        initialValues={{remember: true}}
         autoComplete="off"
       >
         <Form.Item
           label="Nome de usuário"
           name="username"
-          rules={[{ required: true, message: 'Por favor, insira seu usuário!' }]}
+          rules={[{required: true, message: 'Por favor, insira seu usuário!'}]}
         >
-          <Input size="large" style={{ width: '300px' }} />
+          <Input size="large" style={{width: '300px'}}/>
         </Form.Item>
-        
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+
+        <Form.Item wrapperCol={{offset: 6, span: 12}}>
           <Button type="primary" size="large" onClick={recoverPassword} loading={loading}>
             Recuperar Senha
           </Button>
@@ -47,7 +46,7 @@ const RecoverPwd = () => {
       </Form>
       {message && <p>{message}</p>}
     </div>
-    );
+  );
 };
 
 export default RecoverPwd;
