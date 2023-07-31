@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import HeaderSection from "../components/HeaderSection";
 import { Table } from "antd";
+import { modulesListUsers } from "../lib/apiClient";
 
 const RenderCheckbox = ({value}: {value: string}) => {
   return (<div style={{textAlign: "center"}}>
@@ -72,7 +73,7 @@ const dataSource = [
 const Settings = () => {
 
     useEffect(() => {
-       
+       //modulesListUsers()
     }, []);
 
     return (

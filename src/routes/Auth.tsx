@@ -31,7 +31,7 @@ const Auth = () => {
             )
             }
             <Button type="link" onClick={() => setShowRecover(!showRecover)}>
-              {showRecover ? "Fazer o login" : "Esqueci minha senha"}
+              {showRecover ? "Retornar para área de login" : "Esqueci minha senha"}
             </Button>
           </div>
         </Content>

@@ -57,10 +57,14 @@ export const getLeadsSearch = async (params: LeadsApiParams) => {
   if (typeof params.bairro !== 'undefined') url += `&bairro=${params.bairro}`;
   if (typeof params.cep !== 'undefined') url += `&cep=${params.cep}`;
   if (typeof params.capmin !== 'undefined') url += `&capmin=${params.capmin}`;
-  console.log(url);
-  return {data: {body: []}}; 
-  //return await sendRequest(url);
+  
+  return await sendRequest(url);
 };
+
+export const modulesSendUser = async () => {}
+
+export const modulesListUsers = async () => {}
+
 
 const sendRequest = async (url: string) => {
   const response = await axios.get(url, {

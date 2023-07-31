@@ -1,11 +1,11 @@
 import { Input, Button, Form, Checkbox } from 'antd'
 import { useAuth } from '../../hooks/useAuth.tsx'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 
 const SignIn = ({isAdmin}: {isAdmin: boolean}) => {
   const [loading, setLoading] = useState(false)
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState<ReactNode>('')
   const [form] = Form.useForm()
   const auth = useAuth()
   const navigate = useNavigate()
@@ -19,7 +19,7 @@ const SignIn = ({isAdmin}: {isAdmin: boolean}) => {
     if (result.success) {
       navigate({ pathname: '/painel' })
     } else {
-      setMessage(result.message)
+      setMessage(<p className="auth-message-error">{result.message}</p>);
       setLoading(false)
     }
   }
@@ -33,6 +33,7 @@ const SignIn = ({isAdmin}: {isAdmin: boolean}) => {
         wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}
         autoComplete="off"
+        className='form-auth'
       >
         <Form.Item
           label="Login"
@@ -50,17 +51,17 @@ const SignIn = ({isAdmin}: {isAdmin: boolean}) => {
           <Input.Password size="large" style={{ width: '300px' }} />
         </Form.Item>
 
-        <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+        <Form.Item name="remember" valuePropName="checked" wrapperCol={{ span: 24 }}>
           <Checkbox>Lembrar-me</Checkbox>
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Form.Item wrapperCol={{ span: 16 }}>
           <Button type="primary" size="large" onClick={executeSignIn} loading={loading}>
             Entrar
           </Button>
         </Form.Item>
       </Form>
-      {message && <p>{message}</p>}
+      {message}
     </div>
   )
 }

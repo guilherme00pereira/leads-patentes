@@ -12,6 +12,7 @@ interface UseAuth {
   signOut: () => void;
   adminSignIn: (username: string, password: string) => Promise<Result>;
   recoverPassword: (username: string) => Promise<Result>;
+  sendRecoverPasswordCode: (username: string, code: string, newPassword: string) => Promise<Result>;
 }
 
 interface Result {
@@ -143,6 +144,18 @@ const useProvideAuth = (): UseAuth => {
     }
   };
 
+  const sendRecoverPasswordCode = async (username: string, code: string, newPassword: string) => {
+    try {
+      await Auth.forgotPasswordSubmit(username, code, newPassword);
+      return { success: true, message: "" };
+    } catch (error) {
+      return {
+        success: false,
+        message: "Erro ao recuperar senha, contate o Administrador.",
+      };
+    }
+  };  
+
   return {
     isAuthenticated,
     isAdmin,
@@ -152,6 +165,7 @@ const useProvideAuth = (): UseAuth => {
     signIn,
     signOut,
     adminSignIn,
-    recoverPassword
+    recoverPassword,
+    sendRecoverPasswordCode
   };
 };
