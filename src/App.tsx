@@ -7,6 +7,8 @@ import Auth from "./routes/Auth.tsx";
 import AdminAuth from "./routes/AdminAuth.tsx";
 import 'antd/dist/reset.css';
 import Settings from "./routes/Settings.tsx";
+import Analytics from "./routes/Analytics.tsx";
+import Strategy from "./routes/Strategy.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
+        element: <Analytics />,
+      },
+      {
+        path: "strategy",
+        element: <Strategy />,
+      },
+      {
+        path: "busca-individual",
         element: <IndividualSearch />,
       },
       {

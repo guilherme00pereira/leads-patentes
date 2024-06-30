@@ -1,27 +1,26 @@
-import {useContext, useEffect, useState} from "react";
-import {Layout, Button} from "antd";
-import {siderTheme} from "../config/theme.ts";
-import {ConfigProvider, Menu} from "antd";
+import { useContext, useEffect, useState } from "react";
+import { Layout, Button } from "antd";
+import { siderTheme } from "../config/theme.ts";
+import { ConfigProvider, Menu } from "antd";
 import {
   MdOutlinePersonSearch,
   MdOutlineLeaderboard,
   MdOutlineHistory,
   MdDisplaySettings,
   MdOutlineLogout,
+  MdOutlineTrendingUp,
+  MdOutlineLayers,
+  MdEditDocument
 } from "react-icons/md";
-import {Link, useLocation} from "react-router-dom";
-import {FormActionContext} from "../config/context.tsx";
-import {useAuth} from "../hooks/useAuth.tsx";
+import { Link, useLocation } from "react-router-dom";
+import { FormActionContext } from "../config/context.tsx";
+import { useAuth } from "../hooks/useAuth.tsx";
 
-const {Sider} = Layout;
+const { Sider } = Layout;
+const { SubMenu } = Menu;
 
 const Sidebar = () => {
-  const {
-    setRenderTable,
-    setTableData,
-    setBlank,
-    setLoading,
-  } = useContext(FormActionContext);
+  const { setRenderTable, setTableData, setBlank, setLoading } = useContext(FormActionContext);
   const [collapsed, setCollapsed] = useState(true);
   const [selectedKey, setSelectedKey] = useState("");
   const location = useLocation();
@@ -74,52 +73,57 @@ const Sidebar = () => {
         }}
       >
         <div className="sidebar-menu">
-          <Menu
-            selectedKeys={[selectedKey]}
-            mode="inline"
-            theme="dark"
-            inlineCollapsed={collapsed}
-          >
+          <Menu selectedKeys={[selectedKey]} mode="inline" theme="dark" inlineCollapsed={collapsed}>
             <Menu.Item
-              key="bi"
-              icon={<MdOutlinePersonSearch style={{fontSize: "18px"}}/>}
+              key="ana"
+              icon={<MdOutlineTrendingUp style={{ fontSize: "18px" }} />}
               className="sidebar-menu-item"
             >
-              <Link to="/painel">Busca Individual</Link>
+              <Link to="/painel">Analytics</Link>
             </Menu.Item>
+            <SubMenu key="ops" title="Ops" icon={<MdOutlineLayers style={{ fontSize: "18px" }} />} className="sidebar-menu-item">
+              <Menu.Item
+                key="bi"
+                icon={<MdOutlinePersonSearch style={{ fontSize: "18px" }} />}
+                className="sidebar-menu-item"
+              >
+                <Link to="busca-individual">Busca Individual</Link>
+              </Menu.Item>
+              <Menu.Item
+                key="gl"
+                icon={<MdOutlineLeaderboard style={{ fontSize: "18px" }} />}
+                className="sidebar-menu-item"
+              >
+                <Link to="geracao-leads">Geração de Leads</Link>
+              </Menu.Item>
+              <Menu.Item
+                key="hi"
+                icon={<MdOutlineHistory style={{ fontSize: "18px" }} />}
+                className="sidebar-menu-item"
+              >
+                <Link to="historico-de-importacoes">Histórico de Importações</Link>
+              </Menu.Item>
+            </SubMenu>
             <Menu.Item
-              key="gl"
-              icon={<MdOutlineLeaderboard style={{fontSize: "18px"}}/>}
+              key="str"
+              icon={<MdEditDocument style={{ fontSize: "18px" }} />}
               className="sidebar-menu-item"
             >
-              <Link to="geracao-leads">Geração de Leads</Link>
-            </Menu.Item>
-            <Menu.Item
-              key="hi"
-              icon={<MdOutlineHistory style={{fontSize: "18px"}}/>}
-              className="sidebar-menu-item"
-            >
-              <Link to="historico-de-importacoes">
-                Histórico de Importações
-              </Link>
+              <Link to="strategy">Strategy</Link>
             </Menu.Item>
             {auth.isAdmin && (
-              <Menu.Item key="ad" icon={<MdDisplaySettings style={{fontSize: "18px"}}/>} className="sidebar-menu-item">
+              <Menu.Item
+                key="ad"
+                icon={<MdDisplaySettings style={{ fontSize: "18px" }} />}
+                className="sidebar-menu-item"
+              >
                 <Link to="administrativo">Administrativo</Link>
               </Menu.Item>
             )}
           </Menu>
           <Menu theme="dark" mode="inline" inlineCollapsed={collapsed}>
-            <Menu.Item
-              key="lo"
-              icon={<MdOutlineLogout style={{fontSize: "18px"}}/>}
-              className="sidebar-menu-item"
-            >
-              <Button
-                type="text"
-                style={{color: "rgb(255, 255, 255, 0.65)", fontSize: "18px"}}
-                onClick={logout}
-              >
+            <Menu.Item key="lo" icon={<MdOutlineLogout style={{ fontSize: "18px" }} />} className="sidebar-menu-item">
+              <Button type="text" style={{ color: "rgb(255, 255, 255, 0.65)", fontSize: "18px" }} onClick={logout}>
                 Sair
               </Button>
             </Menu.Item>
