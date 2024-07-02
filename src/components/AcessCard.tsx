@@ -1,6 +1,5 @@
 import { Button } from "antd";
 import { Typography } from "antd";
-import Icon from "@ant-design/icons/lib/components/Icon";
 
 const { Title } = Typography;
 
@@ -14,7 +13,7 @@ interface AcessCardProps {
 const AcessCard = (props: AcessCardProps) => {
   return (
     <div className="access-card">
-      <Icon component={props.icon} className="access-card-icon" />
+      {props.icon}
       <Title level={2}>{props.title}</Title>
       <div className="access-card-content">
         <div className="card-box">

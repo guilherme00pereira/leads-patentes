@@ -3,17 +3,15 @@ import { Layout, Button } from "antd";
 import Icon from "@ant-design/icons";
 import { siderTheme } from "../config/theme.ts";
 import { ConfigProvider, Menu } from "antd";
-import {
-  MdOutlinePersonSearch,
-  MdOutlineLeaderboard,
-  MdOutlineHistory,
-  MdDisplaySettings,
-  MdOutlineLogout,
-  MdOutlineTrendingUp,
-  MdOutlineSell,
-  MdEditDocument
-} from "react-icons/md";
-import StacksSvg from "../assets/svg/stacks.svg"
+import StacksSvg from "../assets/svg/stacks.svg?react";
+import EditDocument from "../assets/svg/edit_document.svg?react";
+import History from "../assets/svg/history.svg?react";
+import Leaderboard from "../assets/svg/leaderboard.svg?react";
+import PersonSearch from "../assets/svg/person_search.svg?react";
+import Sell from "../assets/svg/sell.svg?react";
+import TrendingUp from "../assets/svg/trending.svg?react";
+import DisplaySettings from "../assets/svg/display_settings.svg?react";
+import Logout from "../assets/svg/logout.svg?react";
 import { Link, useLocation } from "react-router-dom";
 import { FormActionContext } from "../config/context.tsx";
 import { useAuth } from "../hooks/useAuth.tsx";
@@ -64,29 +62,29 @@ const Sidebar = () => {
           <Menu selectedKeys={[selectedKey]} mode="inline" theme="dark" inlineCollapsed={collapsed} className="submenulist">
             <Menu.Item
               key="ana"
-              icon={<MdOutlineTrendingUp style={{ fontSize: "18px" }} />}
+              icon={<Icon component={TrendingUp} style={{ fontSize: "24px" }} />}
               className="sidebar-menu-item"
             >
               <Link to="analytics" onClick={() => setSelectedKey("ana")}>Analytics</Link>
             </Menu.Item>
-            <SubMenu key="ops" title="Ops" icon={<Icon component={StacksSvg} style={{ fontSize: "18px" }} />} className="menu-item">
+            <SubMenu key="ops" title="Ops" icon={<Icon component={StacksSvg} style={{ fontSize: "24px" }} />} className="menu-item">
               <Menu.Item
                 key="bin"
-                icon={<MdOutlinePersonSearch style={{ fontSize: "18px" }} />}
+                icon={<Icon component={PersonSearch} style={{ fontSize: "24px" }} />}
                 className="sidebar-menu-item"
               >
                 <Link to="/painel" onClick={() => setSelectedKey("bin")}>Busca Individual</Link>
               </Menu.Item>
               <Menu.Item
                 key="gle"
-                icon={<MdOutlineLeaderboard style={{ fontSize: "18px" }} />}
+                icon={<Icon component={Leaderboard} style={{ fontSize: "24px" }} />}
                 className="sidebar-menu-item"
               >
                 <Link to="geracao-leads" onClick={() => setSelectedKey("gle")}>Geração de Leads</Link>
               </Menu.Item>
               <Menu.Item
                 key="hdi"
-                icon={<MdOutlineHistory style={{ fontSize: "18px" }} />}
+                icon={<Icon component={History} style={{ fontSize: "24px" }} />}
                 className="sidebar-menu-item"
               >
                 <Link to="historico-de-importacoes" onClick={() => setSelectedKey("hdi")}>Histórico de Importações</Link>
@@ -94,14 +92,14 @@ const Sidebar = () => {
             </SubMenu>
             <Menu.Item
               key="str"
-              icon={<MdEditDocument style={{ fontSize: "18px" }} />}
+              icon={<Icon component={EditDocument} style={{ fontSize: "24px" }} />}
               className="sidebar-menu-item"
             >
               <Link to="strategy" onClick={() => setSelectedKey("str")}>Strategy</Link>
             </Menu.Item>
             <Menu.Item
               key="int"
-              icon={<MdOutlineSell style={{ fontSize: "18px" }} />}
+              icon={<Icon component={Sell} style={{ fontSize: "24px" }} />}
               className="sidebar-menu-item"
             >
               <Link to="integration" onClick={() => setSelectedKey("int")}>Integrações</Link>
@@ -109,7 +107,7 @@ const Sidebar = () => {
             {auth.isAdmin && (
               <Menu.Item
                 key="adm"
-                icon={<MdDisplaySettings style={{ fontSize: "18px" }} />}
+                icon={<Icon component={DisplaySettings} style={{ fontSize: "24px" }} />}
                 className="sidebar-menu-item"
               >
                 <Link to="administrativo" onClick={() => setSelectedKey("adm")}>Administrativo</Link>
@@ -117,7 +115,7 @@ const Sidebar = () => {
             )}
           </Menu>
           <Menu className="submenulist" theme="dark" mode="inline" inlineCollapsed={collapsed}>
-            <Menu.Item key="lo" icon={<MdOutlineLogout style={{ fontSize: "18px" }} />} className="sidebar-menu-item">
+            <Menu.Item key="lo" icon={<Icon component={Logout} style={{ fontSize: "24px" }} />} className="sidebar-menu-item">
               <Button type="text" style={{ color: "rgb(255, 255, 255, 0.65)", fontSize: "18px" }} onClick={logout}>
                 Sair
               </Button>

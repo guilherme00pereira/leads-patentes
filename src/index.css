@@ -438,6 +438,10 @@ label {
     width: 62px;
     height: 62px;
     border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .access-card h2 {
