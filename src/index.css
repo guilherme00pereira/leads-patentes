@@ -104,6 +104,10 @@
     margin: 32px 0 !important;
 }
 
+.ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+    background-color: #141774;
+}
+
 label {
     color: #141774 !important;
     font-weight: bold;
@@ -406,21 +410,40 @@ label {
     text-align: center;
 }
 
+.access-card-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 40px 80px;
+}
+
 .access-card {
     background-color: #141774;
     border-radius: 20px;   
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 280px;
     height: 408px;
     box-shadow: 6.43px 6.43px 12.06px 0px #0000004D;
+    position: relative;
+    padding-top: 24px;
+    margin-right: 120px;
+}
 
+.access-card-icon {
+    background-color: white;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
 }
 
 .access-card h2 {
     color: white;
+    font-weight: 400;
+    margin-top: 12px;
 }
 
 .access-card-content {
@@ -429,20 +452,23 @@ label {
     border-radius: 20px;
     height: 262px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     padding: 0 40px;
     font-size: 1.125rem !important;
     line-height: 1.5rem;
     font-weight: bold;
+    position: absolute;
+    bottom: 0;
 }
 
 .access-card-content .card-box {
+    margin-top: 32px;
     border-left: 8px solid #141774;
     padding-left: 20px;
 }
 
-.access-card-content p::before {
-    border-left: 3px solid #141774;
+.access-card-footer {
+    margin-bottom: 24px;
 }

@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Layout, Button } from "antd";
+import Icon from "@ant-design/icons";
 import { siderTheme } from "../config/theme.ts";
 import { ConfigProvider, Menu } from "antd";
 import {
@@ -9,10 +10,10 @@ import {
   MdDisplaySettings,
   MdOutlineLogout,
   MdOutlineTrendingUp,
-  MdOutlineLayers,
   MdOutlineSell,
   MdEditDocument
 } from "react-icons/md";
+import StacksSvg from "../assets/svg/stacks.svg"
 import { Link, useLocation } from "react-router-dom";
 import { FormActionContext } from "../config/context.tsx";
 import { useAuth } from "../hooks/useAuth.tsx";
@@ -33,24 +34,11 @@ const Sidebar = () => {
     window.location.href = "/";
   };
 
-  const setActive = () => {
-    if (location.pathname === "/painel/geracao-leads") {
-      setSelectedKey("gl");
-    } else if (location.pathname === "/painel/historico-de-importacoes") {
-      setSelectedKey("hi");
-    } else if (location.pathname === "/painel/administrativo") {
-      setSelectedKey("ad");
-    } else {
-      setSelectedKey("bi");
-    }
-  };
-
   useEffect(() => {
     setTableData([]);
     setBlank(true);
     setLoading(false);
     setRenderTable(false);
-    setActive();
   }, [location]);
 
   return (
@@ -79,29 +67,29 @@ const Sidebar = () => {
               icon={<MdOutlineTrendingUp style={{ fontSize: "18px" }} />}
               className="sidebar-menu-item"
             >
-              <Link to="analytics">Analytics</Link>
+              <Link to="analytics" onClick={() => setSelectedKey("ana")}>Analytics</Link>
             </Menu.Item>
-            <SubMenu key="ops" title="Ops" icon={<MdOutlineLayers style={{ fontSize: "18px", backgroundColor: "#141774" }} />} className="menu-item">
+            <SubMenu key="ops" title="Ops" icon={<Icon component={StacksSvg} style={{ fontSize: "18px" }} />} className="menu-item">
               <Menu.Item
-                key="bi"
+                key="bin"
                 icon={<MdOutlinePersonSearch style={{ fontSize: "18px" }} />}
                 className="sidebar-menu-item"
               >
-                <Link to="/painel">Busca Individual</Link>
+                <Link to="/painel" onClick={() => setSelectedKey("bin")}>Busca Individual</Link>
               </Menu.Item>
               <Menu.Item
-                key="gl"
+                key="gle"
                 icon={<MdOutlineLeaderboard style={{ fontSize: "18px" }} />}
                 className="sidebar-menu-item"
               >
-                <Link to="geracao-leads">Geração de Leads</Link>
+                <Link to="geracao-leads" onClick={() => setSelectedKey("gle")}>Geração de Leads</Link>
               </Menu.Item>
               <Menu.Item
-                key="hi"
+                key="hdi"
                 icon={<MdOutlineHistory style={{ fontSize: "18px" }} />}
                 className="sidebar-menu-item"
               >
-                <Link to="historico-de-importacoes">Histórico de Importações</Link>
+                <Link to="historico-de-importacoes" onClick={() => setSelectedKey("hdi")}>Histórico de Importações</Link>
               </Menu.Item>
             </SubMenu>
             <Menu.Item
@@ -109,22 +97,22 @@ const Sidebar = () => {
               icon={<MdEditDocument style={{ fontSize: "18px" }} />}
               className="sidebar-menu-item"
             >
-              <Link to="strategy">Strategy</Link>
+              <Link to="strategy" onClick={() => setSelectedKey("str")}>Strategy</Link>
             </Menu.Item>
             <Menu.Item
-              key="str"
+              key="int"
               icon={<MdOutlineSell style={{ fontSize: "18px" }} />}
               className="sidebar-menu-item"
             >
-              <Link to="strategy">Integrações</Link>
+              <Link to="integration" onClick={() => setSelectedKey("int")}>Integrações</Link>
             </Menu.Item>
             {auth.isAdmin && (
               <Menu.Item
-                key="ad"
+                key="adm"
                 icon={<MdDisplaySettings style={{ fontSize: "18px" }} />}
                 className="sidebar-menu-item"
               >
-                <Link to="administrativo">Administrativo</Link>
+                <Link to="administrativo" onClick={() => setSelectedKey("adm")}>Administrativo</Link>
               </Menu.Item>
             )}
           </Menu>
