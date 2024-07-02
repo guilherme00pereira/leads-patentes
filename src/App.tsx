@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "",
+        path: "analytics",
         element: <Analytics />,
       },
       {
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <Strategy />,
       },
       {
-        path: "busca-individual",
+        path: "",
         element: <IndividualSearch />,
       },
       {

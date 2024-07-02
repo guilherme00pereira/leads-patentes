@@ -10,6 +10,7 @@ import {
   MdOutlineLogout,
   MdOutlineTrendingUp,
   MdOutlineLayers,
+  MdOutlineSell,
   MdEditDocument
 } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
@@ -69,25 +70,24 @@ const Sidebar = () => {
           bottom: 0,
           top: 0,
           zIndex: 1,
-          backgroundColor: "#141774",
         }}
       >
         <div className="sidebar-menu">
-          <Menu selectedKeys={[selectedKey]} mode="inline" theme="dark" inlineCollapsed={collapsed}>
+          <Menu selectedKeys={[selectedKey]} mode="inline" theme="dark" inlineCollapsed={collapsed} className="submenulist">
             <Menu.Item
               key="ana"
               icon={<MdOutlineTrendingUp style={{ fontSize: "18px" }} />}
               className="sidebar-menu-item"
             >
-              <Link to="/painel">Analytics</Link>
+              <Link to="analytics">Analytics</Link>
             </Menu.Item>
-            <SubMenu key="ops" title="Ops" icon={<MdOutlineLayers style={{ fontSize: "18px" }} />} className="sidebar-menu-item">
+            <SubMenu key="ops" title="Ops" icon={<MdOutlineLayers style={{ fontSize: "18px", backgroundColor: "#141774" }} />} className="menu-item">
               <Menu.Item
                 key="bi"
                 icon={<MdOutlinePersonSearch style={{ fontSize: "18px" }} />}
                 className="sidebar-menu-item"
               >
-                <Link to="busca-individual">Busca Individual</Link>
+                <Link to="/painel">Busca Individual</Link>
               </Menu.Item>
               <Menu.Item
                 key="gl"
@@ -111,6 +111,13 @@ const Sidebar = () => {
             >
               <Link to="strategy">Strategy</Link>
             </Menu.Item>
+            <Menu.Item
+              key="str"
+              icon={<MdOutlineSell style={{ fontSize: "18px" }} />}
+              className="sidebar-menu-item"
+            >
+              <Link to="strategy">Integrações</Link>
+            </Menu.Item>
             {auth.isAdmin && (
               <Menu.Item
                 key="ad"
@@ -121,7 +128,7 @@ const Sidebar = () => {
               </Menu.Item>
             )}
           </Menu>
-          <Menu theme="dark" mode="inline" inlineCollapsed={collapsed}>
+          <Menu className="submenulist" theme="dark" mode="inline" inlineCollapsed={collapsed}>
             <Menu.Item key="lo" icon={<MdOutlineLogout style={{ fontSize: "18px" }} />} className="sidebar-menu-item">
               <Button type="text" style={{ color: "rgb(255, 255, 255, 0.65)", fontSize: "18px" }} onClick={logout}>
                 Sair
