@@ -18,7 +18,7 @@ const SearchForm = (props: FormProps) => {
     <>
       <InputField name="termo" size="large" label={props.label} placeholder={props.placeholder} required={true} />
       <Form.Item>
-        <SubmitButton onClick={props.handler} />
+        <SubmitButton text="Buscar" isSearch onClick={props.handler} />
       </Form.Item>
     </>
   );

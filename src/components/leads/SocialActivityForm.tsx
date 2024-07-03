@@ -1,6 +1,6 @@
 import FormSectionTitle from "../form/FormSectionTitle.tsx";
 import { Row, Col } from "antd";
-import { naturezaJuridicaSelect } from "../../config/data.tsx";
+//import { naturezaJuridicaSelect } from "../../config/data.tsx";
 import CheckboxField from "../form/CheckboxField.tsx";
 import SelectCnaes from "../form/SelectCnaes.tsx";
 

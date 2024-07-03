@@ -83,7 +83,7 @@ const LeadGeneration = () => {
           <SocialActivityForm />
           <Row>
             <Col span={4} offset={20}>
-              <SubmitButton onClick={handleSubmit} />
+              <SubmitButton text="Buscar" isSearch onClick={handleSubmit} />
             </Col>
           </Row>
         </Form>

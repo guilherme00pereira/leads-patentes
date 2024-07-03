@@ -61,9 +61,9 @@ export const getLeadsSearch = async (params: LeadsApiParams) => {
   return await sendRequest(url);
 };
 
-export const modulesSendUser = async () => {}
+//export const modulesSendUser = async () => {}
 
-export const modulesListUsers = async () => {}
+//export const modulesListUsers = async () => {}
 
 
 const sendRequest = async (url: string) => {

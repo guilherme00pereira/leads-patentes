@@ -1,21 +1,26 @@
 import { Button } from "antd";
 import { MdOutlineSearch } from 'react-icons/md'
 
-const SubmitButton = (props: {onClick:()=>void}) => {
+interface SubmitButtonProps {
+  isSearch?: boolean;
+  text: string;
+  onClick: () => void;
+}
+
+const SubmitButton = ({text, isSearch, onClick}: SubmitButtonProps) => {
   return (
     <Button
       type="primary"
       size="large"
-      icon={<MdOutlineSearch />}
+      icon={isSearch ? <MdOutlineSearch /> : null}
       className="form-button"
       style={{
-        width: '120px',
         padding: '0 14px',
         marginTop: '32px',
       }}
-      onClick={props.onClick}
+      onClick={onClick}
     >
-      Buscar
+      {text}
     </Button>
   );
 };

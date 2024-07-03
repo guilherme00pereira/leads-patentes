@@ -22,9 +22,9 @@ const Layout = () => {
   const auth = useAuth();
 
   useEffect(() => {
-    // if (!auth.isAuthenticated) {
-    //   return navigate("/");
-    // }
+    if (!auth.isAuthenticated) {
+      return navigate("/");
+    }
   }, []);
 
   return (
