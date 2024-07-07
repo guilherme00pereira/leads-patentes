@@ -73,3 +73,21 @@ export enum IndividualSearchType {
     NOME_SOCIO = 3,
     CPF = 4,
 }
+
+export interface IFormActionContextData {
+    blank: boolean,
+    setBlank: (newValue: boolean) => void,
+    tableData: SearchTableData[],
+    setTableData: (newValue: SearchTableData[]) => void,
+    renderTable: boolean,
+    setRenderTable: (newValue: boolean) => void,
+    loading: boolean,
+    setLoading: (newValue: boolean) => void
+}
+
+export interface ICadrPageContextData {
+    backPage: string,
+    setBackPage: (newValue: string) => void,
+    domain: string,
+    setDomain: (newValue: string) => void,
+}

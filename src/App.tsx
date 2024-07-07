@@ -10,6 +10,7 @@ import Settings from "./routes/Settings.tsx";
 import Analytics from "./routes/Analytics.tsx";
 import Strategy from "./routes/Strategy.tsx";
 import Integration from "./routes/Integration.tsx";
+import ProjectsPage from "./routes/ProjectsPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "administrativo",
         element: <Settings />,
+      },
+      {
+        path: "projetos",
+        element: <ProjectsPage />,
       }
       ]
   }

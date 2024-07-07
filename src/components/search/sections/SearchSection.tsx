@@ -4,8 +4,8 @@ import SearchForm from "../form/SearchForm.tsx";
 import {
   IndividualSearchType,
   SearchTableData,
-} from "../../../config/types.ts";
-import { FormActionContext } from "../../../config/context.tsx";
+} from "../../../lib/types.ts";
+import { FormActionContext } from "../../../lib/context.tsx";
 import { getIndividualSearch } from "../../../lib/apiClient.ts";
 import CheckboxField from "../../form/CheckboxField.tsx";
 

@@ -13,7 +13,7 @@ import TrendingUp from "../assets/svg/trending.svg?react";
 import DisplaySettings from "../assets/svg/display_settings.svg?react";
 import Logout from "../assets/svg/logout.svg?react";
 import { Link, useLocation } from "react-router-dom";
-import { FormActionContext } from "../config/context.tsx";
+import { FormActionContext } from "../lib/context.tsx";
 import { useAuth } from "../hooks/useAuth.tsx";
 
 const { Sider } = Layout;

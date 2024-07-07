@@ -5,8 +5,8 @@ import SubmitButton from "../../form/SubmitButton.tsx";
 import SelectEstados from "../../form/SelectEstados.tsx";
 import SelectMunicipios from "../../form/SelectMunicipios.tsx";
 import {getAddressSearch} from "../../../lib/apiClient.ts";
-import {SearchTableData} from "../../../config/types.ts";
-import {FormActionContext} from "../../../config/context.tsx";
+import {SearchTableData} from "../../../lib/types.ts";
+import {FormActionContext} from "../../../lib/context.tsx";
 
 const AddressSearchForm = () => {
   const [selectedUF, setSelectedUF] = useState<string>("");
@@ -80,7 +80,7 @@ const AddressSearchForm = () => {
         </Col>
         <Col span={4}>
           <Form.Item>
-            <SubmitButton onClick={handleSubmit}/>
+            <SubmitButton text="Buscar" isSearch onClick={handleSubmit}/>
           </Form.Item>
         </Col>
       </Row>

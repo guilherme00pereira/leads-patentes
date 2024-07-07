@@ -4,6 +4,7 @@ const green = '#249882'
 export const contentTheme = {
   token: {
     colorPrimary: green,
+    fontSize: 16,
   },
   components: {
     Tabs: {

@@ -3,7 +3,7 @@ import SubmitButton from "../../form/SubmitButton.tsx";
 import InputField from "../../form/InputField.tsx";
 import {
   IndividualSearchType,
-} from "../../../config/types.ts";
+} from "../../../lib/types.ts";
 
 interface FormProps {
   label: string;

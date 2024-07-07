@@ -494,3 +494,55 @@ label {
 .access-card-footer {
     margin-bottom: 24px;
 }
+
+.include-projects-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.include-projects-form-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%
+}
+
+.project-table-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 75%;
+}
+
+.project-table-wrapper > div {
+    width: 100%;
+}
+
+.project-table-status-online {
+    color: #28A745;
+}
+
+.project-table-status-em-processamento {
+    color: #FFC107;
+}
+
+.project-table-status-erro {
+    color: #DC3545;
+}
+
+.project-back-link-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 30px;
+
+}
+
+.project-back-link {
+    color: #249882;
+    font-size: 1.25em;
+    
+}

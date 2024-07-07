@@ -1,7 +1,7 @@
 import {Tabs} from 'antd'
 import {searchMenuItems} from '../../config/data.tsx'
 import {useContext} from 'react'
-import {FormActionContext} from '../../config/context.tsx'
+import {FormActionContext} from '../../lib/context.tsx'
 
 const SearchMenu = () => {
   const {setRenderTable, setTableData, setBlank, setLoading} = useContext(FormActionContext)

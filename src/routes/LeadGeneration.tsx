@@ -6,23 +6,16 @@ import FinanceLegalForm from "../components/leads/FinancialLegalForm.tsx";
 import SubmitButton from "../components/form/SubmitButton.tsx";
 import { getLeadsSearch } from "../lib/apiClient.ts";
 import { useContext } from "react";
-import { FormActionContext } from "../config/context.tsx";
-import { SearchTableData } from "../config/types.ts";
+import { FormActionContext } from "../lib/context.tsx";
+import { SearchTableData } from "../lib/types.ts";
 import SearchResultTable from "../components/search/SearchResultTable.tsx";
 import Loading from "../components/Loading.tsx";
 import SocialActivityForm from "../components/leads/SocialActivityForm.tsx";
 
 const LeadGeneration = () => {
   const [form] = Form.useForm();
-  const {
-    loading,
-    blank,
-    renderTable,
-    setRenderTable,
-    setTableData,
-    setLoading,
-    setBlank,
-  } = useContext(FormActionContext);
+  const { loading, blank, renderTable, setRenderTable, setTableData, setLoading, setBlank } =
+    useContext(FormActionContext);
 
   const handleSubmit = () => {
     form
@@ -68,17 +61,21 @@ const LeadGeneration = () => {
   const renderSection = () => {
     if (blank) {
       return (
-        <Form
-          form={form}
-          layout="vertical"
-          requiredMark={false}
-          style={{ width: "90%" }}
-        >
+        <Form form={form} layout="vertical" requiredMark={false} style={{ width: "90%" }}>
           <GeneralFilterForm />
           <Divider className="leads-section-divider" />
-          <LocaleForm />
-          <Divider className="leads-section-divider" />
-          <FinanceLegalForm />
+          <div className="lead-section-container">
+            <div style={{ width: "100%" }}>
+              <Row>
+                <Col span={12} className="leads-activity-social-section" style={{ borderRight: "1px solid #494CA8" }}>
+                  <LocaleForm />
+                </Col>
+                <Col span={12} className="leads-activity-social-section">
+                  <FinanceLegalForm />
+                </Col>
+              </Row>
+            </div>
+          </div>
           <Divider className="leads-section-divider" />
           <SocialActivityForm />
           <Row>

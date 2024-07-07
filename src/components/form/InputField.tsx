@@ -1,6 +1,6 @@
 import {Form, Input} from "antd";
 import { SizeType } from "antd/es/config-provider/SizeContext";
-import {BaseFormProps} from "../../config/types.ts";
+import {BaseFormProps} from "../../lib/types.ts";
 
 interface InputProps extends BaseFormProps {
   size: SizeType;

@@ -1,7 +1,7 @@
 import {TabsProps} from "antd";
 import SearchSection from "../components/search/sections/SearchSection.tsx";
 import AddressSection from "../components/search/sections/AddressSection.tsx";
-import { IndividualSearchType } from "./types.ts";
+import { IndividualSearchType } from "../lib/types.ts";
 
 export const searchMenuItems: TabsProps['items'] = [
     {
@@ -503,3 +503,43 @@ export const naturezaJuridicaSelect: Array<object> = [
         "label": "8885 - Natureza Jurídica não informada"
     }
 ]
+
+
+export const projectTableResultData = [
+    {
+      key: "1",
+      nome: "Project 1",
+      data: "01/02/2024",
+      status: "Online",
+    },
+    {
+      key: "2",
+      nome: "Project 2",
+      data: "01/02/2024",
+      status: "Em processamento",
+    },
+    {
+      key: "3",
+      nome: "Project 3",
+      data: "01/02/2024",
+      status: "Erro",
+    },
+    {
+        key: "4",
+        nome: "Project 4",
+        data: "01/02/2024",
+        status: "Online",
+      },
+      {
+        key: "5",
+        nome: "Project 5",
+        data: "01/02/2024",
+        status: "Em processamento",
+      },
+      {
+        key: "6",
+        nome: "Project 6",
+        data: "01/02/2024",
+        status: "Erro",
+      },
+  ];

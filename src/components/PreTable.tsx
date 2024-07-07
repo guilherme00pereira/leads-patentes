@@ -1,7 +1,7 @@
 import { exportSelect } from "../config/data.tsx";
 import { Select } from "antd";
 import { Excel } from "antd-table-saveas-excel";
-import { PreTableParams } from "../config/types.ts";
+import { PreTableParams } from "../lib/types.ts";
 
 const PreTable = (props: PreTableParams) => {
   

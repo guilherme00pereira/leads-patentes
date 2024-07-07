@@ -1,14 +1,15 @@
 import {useEffect, useState} from "react";
 import { ConfigProvider, Layout as Container } from "antd";
-import { FormActionContext } from "../config/context.tsx";
+import { FormActionContext } from "../lib/context.tsx";
 import Sidebar from "../components/Sidebar.tsx";
 import {Outlet, useNavigate} from "react-router-dom";
 import { contentTheme } from "../config/theme.ts";
 import { IconContext } from "react-icons";
-import { SearchTableData } from '../config/types.ts'
+import { SearchTableData } from '../lib/types.ts'
 import ptBR from "antd/lib/locale/pt_BR";
 import { useAuth } from "../hooks/useAuth.tsx";
 import '@fontsource/space-grotesk';
+import CardPageProvider from "../lib/CardPageProvider.tsx";
 
 const { Content } = Container;
 
@@ -46,11 +47,13 @@ const Layout = () => {
             <Sidebar />
             <Container>
               <ConfigProvider theme={contentTheme} locale={ptBR}>
+                <CardPageProvider>
                 <Content
                   style={{ paddingLeft: "80px", backgroundColor: "white" }}
                 >
                   <Outlet />
                 </Content>
+                </CardPageProvider>
               </ConfigProvider>
             </Container>
           </IconContext.Provider>

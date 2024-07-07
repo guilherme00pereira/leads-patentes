@@ -1,5 +1,5 @@
 import axios from "axios";
-import {AdressApiParams, IndividualSearchType, LeadsApiParams} from "../config/types.ts";
+import {AdressApiParams, IndividualSearchType, LeadsApiParams} from "./types.ts";
 
 const baseUrl =
   "https://p9z6qoneoc.execute-api.us-east-1.amazonaws.com/teste/appleads?";

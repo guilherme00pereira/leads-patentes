@@ -1,6 +1,6 @@
 import { Button, Table } from "antd";
 import { useContext } from "react";
-import { FormActionContext } from "../../config/context.tsx";
+import { FormActionContext } from "../../lib/context.tsx";
 import Column from "antd/es/table/Column";
 import { searchTableColumns } from "../../config/data.tsx";
 import PreTable from "../PreTable.tsx";

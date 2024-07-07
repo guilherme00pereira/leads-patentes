@@ -1,5 +1,5 @@
 import { Form, DatePicker } from "antd";
-import {BaseFormProps} from "../../config/types.ts";
+import {BaseFormProps} from "../../lib/types.ts";
 
 interface DateFieldProps extends BaseFormProps {
     preLabel: string;

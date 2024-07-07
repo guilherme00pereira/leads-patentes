@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {Form, Row, Col, Slider as AntSlider, Input} from 'antd';
 import type { SliderMarks } from "antd/es/slider";
-import {BaseFormProps} from "../../config/types.ts";
+import {BaseFormProps} from "../../lib/types.ts";
 
 const marks: SliderMarks = {
     0: '0',

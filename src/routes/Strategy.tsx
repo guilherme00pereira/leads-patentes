@@ -1,4 +1,4 @@
-import AcessCard from "../components/AcessCard";
+import ProjectsCard from "../components/ProjectsCard";
 import HeaderSection from "../components/HeaderSection";
 import Icon from "@ant-design/icons/lib/components/Icon";
 import Map from "../assets/svg/map.svg?react";
@@ -9,21 +9,21 @@ const Strategy = () => {
     <div className="main-container">
       <HeaderSection title="Strategy" />
       <div className="access-card-list">
-        <AcessCard
+        <ProjectsCard
           title="ICP Map"
           text="Conheça em detalhes o perfil de seu cliente ideal"
           icon={
             <Icon component={Map} style={{ fontSize: "42px", color: "#141774" }} className="access-card-icon" />
           }
-          buttonAction={""}
+          page="strategy"
         />
-        <AcessCard
+        <ProjectsCard
           title="Funnel Map"
           text="Avalie a performance e pontos de melhoria em seu funil de vendas"
           icon={
             <Icon component={Funnel} style={{ fontSize: "48px", color: "#141774" }} className="access-card-icon" />
           }
-          buttonAction={""}
+          page="strategy"
         />
       </div>
     </div>
