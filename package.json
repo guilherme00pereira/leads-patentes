@@ -1,7 +1,7 @@
 {
   "name": "leads-patentes",
   "private": true,
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,7 +17,7 @@
     "@react-pdf/renderer": "^3.4.4",
     "antd": "^5.19.0",
     "antd-table-saveas-excel": "^2.2.1",
-    "aws-amplify": "^5.2.2",
+    "aws-amplify": "^5.3.19",
     "axios": "^1.7.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
