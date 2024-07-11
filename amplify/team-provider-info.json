@@ -14,7 +14,8 @@
     },
     "categories": {
       "auth": {
-        "funilize36b41818": {}
+        "funilize36b41818": {},
+        "userPoolGroups": {}
       },
       "function": {
         "funilize36b41818PostConfirmation": {

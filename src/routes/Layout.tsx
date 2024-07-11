@@ -7,9 +7,9 @@ import { contentTheme } from "../config/theme.ts";
 import { IconContext } from "react-icons";
 import { SearchTableData } from '../lib/types.ts'
 import ptBR from "antd/lib/locale/pt_BR";
-import { useAuth } from "../hooks/useAuth.tsx";
 import '@fontsource/space-grotesk';
 import CardPageProvider from "../lib/CardPageProvider.tsx";
+import { currentAuthenticatedUser } from "../lib/amplifyClient.ts";
 
 const { Content } = Container;
 
@@ -20,12 +20,15 @@ const Layout = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const auth = useAuth();
-
   useEffect(() => {
-    if (!auth.isAuthenticated) {
-      return navigate("/");
+    async function checkAuth() {
+      const authenticated = await currentAuthenticatedUser();
+      console.log(authenticated);
+      if (!authenticated) {
+        navigate({ pathname: "/" });
+      }
     }
+    checkAuth();
   }, []);
 
   return (

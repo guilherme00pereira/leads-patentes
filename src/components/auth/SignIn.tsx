@@ -1,27 +1,33 @@
 import { Input, Button, Form, Checkbox } from 'antd'
-import { useAuth } from '../../hooks/useAuth.tsx'
 import { useNavigate } from 'react-router-dom'
 import { ReactNode, useState } from 'react'
+import { authenticateUser } from '../../lib/amplifyClient.ts'
 
 const SignIn = ({isAdmin}: {isAdmin: boolean}) => {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<ReactNode>('')
+  const [confirmPasswordStep, setConfirmPasswordStep] = useState(false)
   const [form] = Form.useForm()
-  const auth = useAuth()
   const navigate = useNavigate()
 
-  const executeSignIn = async () => {
+  const handleSignIn = async () => {
     setLoading(true)
     const values = await form.validateFields()
+    //const result = isAdmin ? await auth.adminSignIn(values.username, values.password) : await auth.signIn(values.username, values.password)
+    const signedIn = await authenticateUser({ username: values.username, password: values.password })
 
-    const result = isAdmin ? await auth.adminSignIn(values.username, values.password) : await auth.signIn(values.username, values.password)
-    
-    if (result.success) {
+    if (signedIn == 1) {
       navigate({ pathname: '/painel' })
+    } else if (signedIn == 2) {
+      setConfirmPasswordStep(true)
     } else {
-      setMessage(<p className="auth-message-error">{result.message}</p>);
+      setMessage('Usuário ou senha inválidos')
       setLoading(false)
     }
+  }
+
+  const handleConfirmPassword = () => {
+    
   }
 
   return (
@@ -56,7 +62,7 @@ const SignIn = ({isAdmin}: {isAdmin: boolean}) => {
         </Form.Item>
 
         <Form.Item wrapperCol={{ span: 16 }}>
-          <Button type="primary" size="large" onClick={executeSignIn} loading={loading}>
+          <Button type="primary" size="large" onClick={handleSignIn} loading={loading}>
             Entrar
           </Button>
         </Form.Item>
