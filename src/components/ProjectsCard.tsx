@@ -23,7 +23,7 @@ const ProjectsCard = (props: ProjectsCardProps) => {
     console.log(props.title);
     setBackPage(props.page);
     setDomain(props.title);
-    navigate({pathname: "/painel/projetos"});
+    navigate({pathname: "/projetos"});
   }
 
   return (

@@ -24,7 +24,7 @@ const ProjectsPage = () => {
     <div className="main-container">
       <HeaderSection title={`Analytics | ${domain}`} />
       <div className="project-back-link-wrapper">
-        <Link to={`/painel/${backPage}`} className="project-back-link">voltar</Link>
+        <Link to={`/${backPage}`} className="project-back-link">voltar</Link>
       </div>
       <IncludeProjectSection />
       <Divider className="leads-section-divider" />

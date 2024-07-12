@@ -12,9 +12,8 @@ import Analytics from "./routes/Analytics.tsx";
 import Strategy from "./routes/Strategy.tsx";
 import Integration from "./routes/Integration.tsx";
 import ProjectsPage from "./routes/ProjectsPage.tsx";
+import NotFound from "./routes/NotFound.tsx";
 import { StyledAuth } from "./StyledAuth.tsx";
-
-const { Content } = Container;
 
 const router = createBrowserRouter([
   {
@@ -61,6 +60,10 @@ const router = createBrowserRouter([
         path: "projetos",
         element: <ProjectsPage />,
       },
+      {
+        path: "*",
+        element: <NotFound />,
+      }
     ],
   },
 ]);
@@ -68,11 +71,9 @@ const router = createBrowserRouter([
 export default function App() {
   return (
     <Container style={{ minHeight: "100vh" }}>
-      <Content className="container-auth-card">
         <StyledAuth>
           <RouterProvider router={router} fallbackElement={<Fallback />} />
         </StyledAuth>
-      </Content>
     </Container>
   );
 }
