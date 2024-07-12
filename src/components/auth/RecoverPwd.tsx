@@ -1,18 +1,17 @@
 import { Input, Button, Form } from "antd";
-import { useAuth } from "../../hooks/useAuth.tsx";
 import { ReactNode, useState } from "react";
+import { handleConfirmResetPassword, recoverPassword } from "../../lib/amplifyClient";
 
 const RecoverPwd = () => {
   const [hasCode, setHasCode] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<ReactNode>("");
   const [form] = Form.useForm();
-  const auth = useAuth();
 
-  const recoverPassword = async () => {
+  const handlePasswordRecovery = async () => {
     setLoading(true);
     const values = await form.validateFields();
-    const result = await auth.recoverPassword(values.username);
+    const result = await recoverPassword(values.username);
     if (result.success) {
       setMessage(
         <p className="auth-message-info">
@@ -21,7 +20,7 @@ const RecoverPwd = () => {
         </p>
       );
     } else {
-      setMessage(<p className="auth-message-error">{result.message}</p>);
+      setMessage(<p className="auth-message-error">result.message</p>);
     }
     setLoading(false);
   };
@@ -29,17 +28,18 @@ const RecoverPwd = () => {
   const submitCodeNewPassword = async () => {
     setLoading(true);
     const values = await form.validateFields();
-    const result = await auth.sendRecoverPasswordCode(
-      values.username,
-      values.code,
-      values.newPassword
-    );
+    const result = await handleConfirmResetPassword({
+      username: values.username,
+      confirmationCode: values.code,
+      newPassword: values.newPassword
+    }
+  );
     if (result.success) {
       setMessage(
         <p className="auth-message-success">Senha alterada com sucesso!</p>
       );
     } else {
-      setMessage(<p className="auth-message-error">{result.message}</p>);
+      setMessage(<p className="auth-message-error">result.message</p>);
     }
     setLoading(false);
   };
@@ -98,7 +98,7 @@ const RecoverPwd = () => {
             <Form.Item wrapperCol={{ span: 12 }}>
               <Button
                 type="primary"
-                onClick={recoverPassword}
+                onClick={handlePasswordRecovery}
                 loading={loading}
               >
                 Recuperar Senha

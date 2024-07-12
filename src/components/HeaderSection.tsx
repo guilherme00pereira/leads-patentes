@@ -1,6 +1,7 @@
 import { Typography } from 'antd'
 import { titleCase } from '../lib/helpers';
 import { useEffect, useState } from 'react';
+import { currentAuthenticatedUser } from '../lib/amplifyClient';
 
 const { Title } = Typography;
 
@@ -9,13 +10,16 @@ interface TitleProps {
 }
 
 const HeaderSection = ({ title }: TitleProps) => {
-    const [username, setUsername] = useState("");
-  const [avatar, setAvatar] = useState("");
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    const fetchUser = async () => {
+    const user = await currentAuthenticatedUser();
+    if (user) {
     setUsername(user.username);
-    setAvatar(user.avatar);
+    }
+    }
+    fetchUser();
     }, []);
     
     return (
@@ -25,7 +29,6 @@ const HeaderSection = ({ title }: TitleProps) => {
             </div>
             <div>
                 <span>Olá, {titleCase(username)}</span>
-                {avatar && <img src={avatar} alt="Avatar" />}
             </div>
         </div>
     );

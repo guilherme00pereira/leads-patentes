@@ -14,7 +14,7 @@ import DisplaySettings from "../assets/svg/display_settings.svg?react";
 import Logout from "../assets/svg/logout.svg?react";
 import { Link, useLocation } from "react-router-dom";
 import { FormActionContext } from "../lib/context.tsx";
-import { useAuth } from "../hooks/useAuth.tsx";
+import { handleSignOut } from "../lib/amplifyClient.ts";
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -24,11 +24,10 @@ const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(true);
   const [selectedKey, setSelectedKey] = useState("");
   const location = useLocation();
-
-  const auth = useAuth();
+  const isAdmin = true;
 
   const logout = () => {
-    auth.signOut();
+    handleSignOut();
     window.location.href = "/";
   };
 
@@ -104,7 +103,7 @@ const Sidebar = () => {
             >
               <Link to="integration" onClick={() => setSelectedKey("int")}>Integrações</Link>
             </Menu.Item>
-            {auth.isAdmin && (
+            {isAdmin && (
               <Menu.Item
                 key="adm"
                 icon={<Icon component={DisplaySettings} style={{ fontSize: "24px" }} />}

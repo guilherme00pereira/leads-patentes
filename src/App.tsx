@@ -1,20 +1,24 @@
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { Layout as Container } from "antd";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./routes/Layout.tsx";
 import IndividualSearch from "./routes/IndividualSearch.tsx";
 import LeadGeneration from "./routes/LeadGeneration.tsx";
 import ImportHistory from "./routes/ImportHistory.tsx";
 import Auth from "./routes/Auth.tsx";
 import AdminAuth from "./routes/AdminAuth.tsx";
-import 'antd/dist/reset.css';
+import "antd/dist/reset.css";
 import Settings from "./routes/Settings.tsx";
 import Analytics from "./routes/Analytics.tsx";
 import Strategy from "./routes/Strategy.tsx";
 import Integration from "./routes/Integration.tsx";
 import ProjectsPage from "./routes/ProjectsPage.tsx";
+import { StyledAuth } from "./StyledAuth.tsx";
+
+const { Content } = Container;
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/auth",
     element: <Auth />,
   },
   {
@@ -22,7 +26,7 @@ const router = createBrowserRouter([
     element: <AdminAuth />,
   },
   {
-    path: "/painel",
+    path: "/",
     element: <Layout />,
     children: [
       {
@@ -56,15 +60,21 @@ const router = createBrowserRouter([
       {
         path: "projetos",
         element: <ProjectsPage />,
-      }
-      ]
-  }
-])
+      },
+    ],
+  },
+]);
 
 export default function App() {
   return (
-    <RouterProvider router={router} fallbackElement={<Fallback />} />
-  )
+    <Container style={{ minHeight: "100vh" }}>
+      <Content className="container-auth-card">
+        <StyledAuth>
+          <RouterProvider router={router} fallbackElement={<Fallback />} />
+        </StyledAuth>
+      </Content>
+    </Container>
+  );
 }
 
 export function Fallback() {
